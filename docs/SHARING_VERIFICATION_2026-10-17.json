@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "url": "https://akuma815.github.io/",
+  "browser": "msedge",
+  "games": 21,
+  "checks": [
+    "Card selection updates address; canonical per-game clipboard link; existing skip works",
+    "Reloading query link restores the game without insertion delay",
+    "Static game address opens correct image and release; Escape returns to catalog and stays closed after reload",
+    "Browser Back closes and Forward restores the selected game",
+    "History switches between two games without stale dialog/community content",
+    "Clipboard denial selects the real URL and reports manual-copy fallback",
+    "Unknown/untrusted game ID safely keeps the full catalog",
+    "All 21 game entry pages have HTTP 200, game-specific canonical/title/description/image metadata",
+    "390px mobile direct link and clipboard button fit without horizontal overflow",
+    "JavaScript-disabled entry page retains game-specific patch download and notes"
+  ],
+  "javascript_errors": [],
+  "deployment_url": "https://github.com/akuma815/akuma815.github.io/actions/runs/38921888906",
+  "deployment_status": "success",
+  "feature_commit": "b10aecd22d46c0b7e90a5cbdd0ff6dcb9e07d549",
+  "verified_date": "2026-10-17",
+  "client_timezone": "Asia/Seoul",
+  "external_messenger_sent": false,
+  "example_url": "https://akuma815.github.io/games/nes-tom-and-jerry-kr-patch/"
+}
