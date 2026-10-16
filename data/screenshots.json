@@ -273,5 +273,18 @@
     "pixelSHA256": "f4b563a334462b413388492f83315368cad122d2dcd17a20771622d1754e22c9",
     "romSHA256": "325109b789525c781cb72e78392768df8625fd55c04f78f329ece540993cf51d",
     "sourceNote": "v1.0과 동일한 결과 해시의 Mesen 2.1.1 실제 타이틀 캡처. 원본 PNG를 자르거나 보정하지 않고 그대로 반영했습니다."
+  },
+  "nes-tom-and-jerry-kr-patch": {
+    "src": "assets/screenshots/nes-tom-and-jerry-kr-patch.png",
+    "caption": "한글 타이틀 · v1.0",
+    "kind": "runtime",
+    "width": 256,
+    "height": 240,
+    "source": "Games/Tom & Jerry/qa/text_008/normal/f0300.png",
+    "sourceSHA256": "768a9c4ea77a1e515f46c98b2deeca311b9700b92a4835e7c97319f220253308",
+    "assetSHA256": "768a9c4ea77a1e515f46c98b2deeca311b9700b92a4835e7c97319f220253308",
+    "pixelSHA256": "19e73df18ce6b4935135f5702baad96b1f6ab79681dc5303d557f7ef57efae0d",
+    "romSHA256": "304b67fb63ad9145fb4cb61335cfdcc46c656a7b63d106be0a45db5258a9f004",
+    "sourceNote": "정식 v1.0 적용 결과와 같은 SHA-256의 008 ROM을 Mesen 2.2.1에서 콜드 부팅해 캡처한 실제 한글 타이틀. 256×240 전체 PNG를 가공 없이 보존했습니다."
   }
 }

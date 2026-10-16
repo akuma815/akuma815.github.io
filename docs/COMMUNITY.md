@@ -41,7 +41,7 @@ python scripts/setup_community.py --apply
 
 `--apply`는 사용자의 GitHub CLI 인증으로 작업합니다. 필요한 경우 Issues를 켜고 누락 라벨을 생성한 뒤, 원래 Git 트리에 두 템플릿만 더한 커밋을 만듭니다. 강제 푸시하지 않으며 다른 파일과 기존 Issue 양식은 보존합니다. 같은 이름의 관리되지 않은 양식은 덮어쓰지 않습니다. 사이트 관리 표시가 있는 양식은 `community-templates/` 원본으로 갱신할 수 있습니다. 이미 동일하면 변경하지 않습니다. 결과는 `qa/community/setup_*.json`에 기록합니다.
 
-현재 20개 게임의 초기 연결 결과는 [COMMUNITY_SETUP.json](COMMUNITY_SETUP.json)에 있습니다. 게시판 연결은 패치 바이너리·번역문·릴리즈 파일을 바꾸지 않습니다.
+기존 20개 게임의 초기 연결 결과는 [COMMUNITY_SETUP.json](COMMUNITY_SETUP.json)에 있습니다. 게시판 연결은 패치 바이너리·번역문·릴리즈 파일을 바꾸지 않습니다.
 
 ## 검사
 
@@ -59,3 +59,5 @@ Chromium 설치 환경에서는 `--channel chromium`을 사용합니다. 실제 
 - `--live-readonly`는 테스트 데이터 없이 실제 공개 GitHub 목록을 읽습니다. 글을 등록하지 않습니다.
 - 실제 GitHub 로그인과 최종 게시 동작을 자동으로 대행하지 않습니다. 테스트 글을 공개 저장소에 남기지 않습니다.
 - 캡처와 결과는 qa/community에만 저장하며 배포 아티팩트에서 제외합니다.
+
+2026-10-16 추가한 톰과 제리 저장소에는 기존 사이트와 같은 방명록/버그 신고 템플릿, `site-guestbook`/`site-bug` 라벨을 연결했습니다. 현재 등록 게임은 21개입니다.

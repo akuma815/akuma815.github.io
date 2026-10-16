@@ -593,6 +593,35 @@
         "originalCapturePath": "H:/ppsspp/memstick/PSP/SCREENSHOT/ULKS46133_00000.png",
         "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
       }
+    },
+    {
+      "id": "nes-tom-and-jerry-kr-patch",
+      "title": "톰과 제리",
+      "english": "Tom & Jerry",
+      "platform": "NES",
+      "description": "톰의 함정을 피해 제리와 함께 터피를 구하러 가자!",
+      "version": "v1.0",
+      "available": true,
+      "repository": "https://github.com/akuma815/nes-tom-and-jerry-kr-patch",
+      "release": "https://github.com/akuma815/nes-tom-and-jerry-kr-patch/releases/tag/v1.0",
+      "notes": [
+        "일본판 원본 전용이야. 타이틀 두 부분과 도입부·엔딩의 일본어 18행을 한글로 바꿨어.",
+        "엔딩 문구는 원래 루틴을 실행한 진단으로 확인했어. 정상 플레이의 엔딩 도달·전체 플레이·실기 검증은 아직이야.",
+        "PUSH START BUTTON 같은 영어 표기는 그대로야. 기존 세이브스테이트 대신 새로 시작해 줘."
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/nes-tom-and-jerry-kr-patch.png",
+        "caption": "한글 타이틀 · v1.0",
+        "kind": "runtime",
+        "width": 256,
+        "height": 240,
+        "source": "Games/Tom & Jerry/qa/text_008/normal/f0300.png",
+        "sourceSHA256": "768a9c4ea77a1e515f46c98b2deeca311b9700b92a4835e7c97319f220253308",
+        "assetSHA256": "768a9c4ea77a1e515f46c98b2deeca311b9700b92a4835e7c97319f220253308",
+        "pixelSHA256": "19e73df18ce6b4935135f5702baad96b1f6ab79681dc5303d557f7ef57efae0d",
+        "romSHA256": "304b67fb63ad9145fb4cb61335cfdcc46c656a7b63d106be0a45db5258a9f004",
+        "sourceNote": "정식 v1.0 적용 결과와 같은 SHA-256의 008 ROM을 Mesen 2.2.1에서 콜드 부팅해 캡처한 실제 한글 타이틀. 256×240 전체 PNG를 가공 없이 보존했습니다."
+      }
     }
   ]
 }
