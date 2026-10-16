@@ -54,7 +54,7 @@ def main():
     ctx.eval((ROOT/'assets/app.js').read_text(encoding='utf-8'))
     assert ctx.eval('cards()')==len(catalog['games'])
     assert ctx.eval('(element("games").innerHTML.match(/<img /g)||[]).length')==sum(bool(g.get('screenshot')) for g in catalog['games'])
-    assert ctx.eval('element("catalog-summary").textContent')==f'배포 중 {public}개 · 등록 준비 {total-public}개'
+    assert ctx.eval('element("catalog-summary").textContent')==f'지금 받을 수 있는 패치 {public}개 · 등록 준비 {total-public}개'
     ctx.eval('fire("search","input","메트로이드")');assert ctx.eval('cards()')==2
     ctx.eval('fire("search","input","Another Code")');assert ctx.eval('cards()')==1
     ctx.eval('fire("search","input","no-such-game-815")');assert ctx.eval('cards()')==0 and not ctx.eval('element("empty").hidden')
