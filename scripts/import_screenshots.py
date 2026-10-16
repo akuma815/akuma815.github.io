@@ -33,6 +33,7 @@ USER_CAPTURES = {
 }
 for slug,(folder,caption,note) in USER_CAPTURES.items():
     CURATED[slug]=(f'Games/{folder}/qa/user_capture_20261016/title.png',caption,'runtime',note)
+CURATED['psp-death-jr-kr-patch']=('Games/Death Jr/qa/public_title_20261016/title.png','타이틀 · 한글 시작 안내','runtime','기존 PPSSPP 타이틀 캡처. 로고는 원문이며 시작 안내는 한글입니다. 촬영 당시 버전과 최종 배포본의 일치 여부는 확인하지 않았습니다.')
 
 def main():
     dest=SITE/'assets/screenshots';dest.mkdir(exist_ok=True)
@@ -44,6 +45,8 @@ def main():
             pixels=image.convert('RGBA').tobytes()
             if slug in USER_CAPTURES:
                 dst=dest/(slug+'-user-20261016.png');shutil.copyfile(src,dst)
+            elif slug=='psp-death-jr-kr-patch':
+                dst=dest/(slug+'-title-20261016.png');shutil.copyfile(src,dst)
             elif src.stat().st_size>200000:
                 dst=dest/(slug+'.webp')
                 image.save(dst,'WEBP',lossless=True,quality=100,method=6,exact=True)
