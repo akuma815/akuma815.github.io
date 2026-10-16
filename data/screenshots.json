@@ -260,5 +260,18 @@
     "captureDate": "2026-10-16",
     "originalCapturePath": "H:/ppsspp/memstick/PSP/SCREENSHOT/ULKS46133_00000.png",
     "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
+  },
+  "nes-ninja-kun-majou-no-bouken-kr-patch": {
+    "src": "assets/screenshots/nes-ninja-kun-majou-no-bouken-kr-patch.png",
+    "caption": "한글 타이틀 · v1.0",
+    "kind": "runtime",
+    "width": 256,
+    "height": 240,
+    "source": "Games/Ninja-kun - Majou no Bouken/qa/title_kr_release_100/cold_boot_001/frame_0120.png",
+    "sourceSHA256": "31ff359244b10c52fcd6a449565f2ec2a7ca43c221cdf16e5a0456f1f1e8a6ee",
+    "assetSHA256": "31ff359244b10c52fcd6a449565f2ec2a7ca43c221cdf16e5a0456f1f1e8a6ee",
+    "pixelSHA256": "f4b563a334462b413388492f83315368cad122d2dcd17a20771622d1754e22c9",
+    "romSHA256": "325109b789525c781cb72e78392768df8625fd55c04f78f329ece540993cf51d",
+    "sourceNote": "v1.0과 동일한 결과 해시의 Mesen 2.1.1 실제 타이틀 캡처. 원본 PNG를 자르거나 보정하지 않고 그대로 반영했습니다."
   }
 }

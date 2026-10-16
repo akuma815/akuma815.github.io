@@ -290,6 +290,36 @@ window.PATCH_CATALOG = {
       }
     },
     {
+      "id": "nes-ninja-kun-majou-no-bouken-kr-patch",
+      "title": "닌자군 - 마성의 모험",
+      "english": "Ninja-kun - Majou no Bouken",
+      "platform": "NES",
+      "description": "타이틀 로고를 한글화한 닌자 액션 게임입니다.",
+      "version": "v1.0",
+      "available": true,
+      "repository": "https://github.com/akuma815/nes-ninja-kun-majou-no-bouken-kr-patch",
+      "release": "https://github.com/akuma815/nes-ninja-kun-majou-no-bouken-kr-patch/releases/tag/v1.0",
+      "notes": [
+        "일본판 원본 전용입니다. 타이틀 로고만 번역하며 기존 영문은 유지합니다.",
+        "사용자 실제 플레이에서 타이틀 외 일본어를 발견하지 못했다는 보고가 있습니다.",
+        "그래픽 공간 확보를 위해 매퍼3(CNROM)로 확장했습니다. 적용 안내의 원본 해시를 확인하고 새로 부팅하세요.",
+        "Mesen 부팅·시작·리셋 및 화면 비교를 확인했습니다. 에이전트 전체 완주·실기 검수는 미수행입니다."
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/nes-ninja-kun-majou-no-bouken-kr-patch.png",
+        "caption": "한글 타이틀 · v1.0",
+        "kind": "runtime",
+        "width": 256,
+        "height": 240,
+        "source": "Games/Ninja-kun - Majou no Bouken/qa/title_kr_release_100/cold_boot_001/frame_0120.png",
+        "sourceSHA256": "31ff359244b10c52fcd6a449565f2ec2a7ca43c221cdf16e5a0456f1f1e8a6ee",
+        "assetSHA256": "31ff359244b10c52fcd6a449565f2ec2a7ca43c221cdf16e5a0456f1f1e8a6ee",
+        "pixelSHA256": "f4b563a334462b413388492f83315368cad122d2dcd17a20771622d1754e22c9",
+        "romSHA256": "325109b789525c781cb72e78392768df8625fd55c04f78f329ece540993cf51d",
+        "sourceNote": "v1.0과 동일한 결과 해시의 Mesen 2.1.1 실제 타이틀 캡처. 원본 PNG를 자르거나 보정하지 않고 그대로 반영했습니다."
+      }
+    },
+    {
       "id": "psp-prinny-kr-patch",
       "title": "프리니 ~제가 주인공해도 되겠슴까?~",
       "english": "Prinny - Ore ga Shujinkou de Iinsuka",

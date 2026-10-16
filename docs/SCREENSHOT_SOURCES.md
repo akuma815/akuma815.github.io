@@ -14,6 +14,7 @@
 | gba-metroid-zero-mission-kr-patch | runtime | title_ko Mesen 캡처 | `ea7dd80cd349bbde1afb55b7ee772a608247ac4100aa77356b927a525e524a2a` |
 | gba-metroid-fusion-kr-patch | runtime | v24_korean_title_vramsafe Mesen 캡처 | `d5a09b21e12504e2acb392167250bc0c9f0ce2a916792c8f6ad3c3a13d18f404` |
 | nes-ninja-jajamaru-kun-kr-patch | runtime | title_kr_menu_003 Mesen 콜드 부팅 캡처 | `ddecbbb92debd5611cd3242da5fb642b22a4e0ca18b76a4bf9487a5800d6a7eb` |
+| nes-ninja-kun-majou-no-bouken-kr-patch | runtime | 타이틀 한글화 v1.0 결과 SHA-256 `325109b789525c781cb72e78392768df8625fd55c04f78f329ece540993cf51d`의 Mesen2.1.1 실제 캡처. 256×240 PNG를 무가공 보존. | `31ff359244b10c52fcd6a449565f2ec2a7ca43c221cdf16e5a0456f1f1e8a6ee` |
 | psp-prinny-kr-patch | runtime | 사용자 제공 프리니 타이틀·메뉴 화면. 촬영 당시 FPS 표시와 화면 비율을 그대로 보존했습니다. | `0680825a6dd51d5a94955ced796165f7082cdf13ab9bb465149059fbf1ab4eb2` |
 | ps1-rakugaki-showtime-kr-patch | runtime | 사용자 제공 라쿠가키 쇼타임 전체 타이틀 화면. 대형 로고는 원문이며 양옆 시작 안내는 한글입니다. | `b1ef1b2f8daba9deaa4014bb3c4417ec04c03e00fc9980104e8d8a7c2974daa4` |
 | pc-shivers-kr-patch | runtime | 사용자 제공 쉬버스 타이틀 화면. RC1과 같은 025 커스텀 실행기를 사용했으며 메뉴 일부는 영어로 표시됩니다. | `a800d94562c92565cbc9574ce9e276d3335b64a3c818fe3b45af0784941a2a7b` |
