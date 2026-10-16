@@ -24,7 +24,7 @@
     heroImage.alt = `${game.title} — ${game.screenshot.caption}`;
   }
   const imageTag = (g) => `<img src="${esc(g.screenshot.src)}" width="${Number(g.screenshot.width)}" height="${Number(g.screenshot.height)}" loading="lazy" decoding="async" alt="${esc(g.title)} — ${esc(g.screenshot.caption)}">`;
-  const photo = (g) => hasImage(g) ? `<figure class="card-photo"><button type="button" class="screenshot-open" data-details="${esc(g.id)}" aria-label="${esc(g.title)} 이미지와 상세 정보 보기">${imageTag(g)}</button><figcaption class="screenshot-caption"><span>${esc(g.screenshot.caption)}</span><span>${g.screenshot.kind==="runtime"?"GAME CAPTURE":g.screenshot.kind==="video"?"MOVIE FRAME":"GRAPHIC WORK"}</span></figcaption></figure>` : `<figure class="card-photo"><div class="missing-photo" role="img" aria-label="${esc(g.title)} 화면 캡처 준비 중"><strong>추억의 한 장면을 준비 중</strong><small>CAPTURE COMING SOON</small></div><figcaption class="screenshot-caption"><span>확인된 화면 캡처가 아직 없습니다.</span></figcaption></figure>`;
+  const photo = (g) => hasImage(g) ? `<figure class="card-photo"><button type="button" class="screenshot-open" data-details="${esc(g.id)}" aria-label="${esc(g.title)} 이미지와 상세 정보 보기">${imageTag(g)}</button></figure>` : `<figure class="card-photo"><div class="missing-photo" role="img" aria-label="${esc(g.title)} 화면 캡처 준비 중"><strong>추억의 한 장면을 준비 중</strong><small>CAPTURE COMING SOON</small></div></figure>`;
   const availableCount = games.filter(g=>g.available).length;
   $("total-count").textContent = String(games.length).padStart(2,"0");
   $("catalog-summary").textContent = `배포 중 ${availableCount}개 · 등록 준비 ${games.length-availableCount}개`;
@@ -53,7 +53,7 @@
     const g=games.find(g=>g.id===b.dataset.details);if(!g)return;
     previousFocus=b;$("dialog-title").textContent=g.title;$("dialog-platform").textContent=platformNames[g.platform];$("dialog-about").textContent=g.description;
     $("dialog-media").hidden=!hasImage(g);
-    $("dialog-media").innerHTML=hasImage(g)?imageTag(g)+`<figcaption>${esc(g.screenshot.caption)}<br>${esc(g.screenshot.sourceNote)}</figcaption>`:"";
+    $("dialog-media").innerHTML=hasImage(g)?imageTag(g):"";
     $("dialog-version").innerHTML=`<span>${g.available?"배포 중":"공개 등록 준비"}</span> · ${esc(g.version)}`;
     $("dialog-notes").innerHTML=g.notes.map(n=>`<li>${esc(n)}</li>`).join("");
     $("dialog-actions").innerHTML=g.available?safeLink(g.release,"최종 배포 패치 받기 ↗","primary")+safeLink(g.repository,"적용 방법 · 소스 ↗"):'<p class="pending-label">공개 릴리즈 등록 후 다운로드 링크가 제공됩니다.</p>';
