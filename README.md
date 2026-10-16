@@ -2,7 +2,7 @@
 
 **사이트: https://akuma815.github.io/**
 
-게임과 독립된 `akuma815/akuma815.github.io` 저장소의 `main` 브랜치 루트에서 게시합니다. [최신 인계](docs/HANDOFF.md)
+게임과 독립된 `akuma815/akuma815.github.io` 저장소의 `main` 브랜치를 GitHub Actions로 검사·게시합니다. [최신 인계](docs/HANDOFF.md)
 
 게임별 한글 패치·최종 릴리즈·적용 안내를 모은 GitHub Pages 정적 사이트입니다.
 
@@ -30,13 +30,15 @@ python -m http.server 8765 --bind 127.0.0.1
 python scripts/update_catalog.py --verify-remote
 ```
 
-로그인된 GitHub CLI로 공개 저장소와 릴리즈 첨부 존재 여부를 확인합니다. 아직 공개되지 않은 주소에는 다운로드 링크를 만들지 않습니다. 새 게임을 추가하려면 JSON에 항목을 추가한 뒤 스크립트를 실행합니다. 자동 예약 갱신은 설정하지 않았습니다.
+로그인된 GitHub CLI로 공개 저장소와 릴리즈 첨부 존재 여부를 확인합니다. 아직 공개되지 않은 주소에는 다운로드 링크를 만들지 않습니다. 새 게임을 추가하려면 JSON에 항목을 추가한 뒤 스크립트를 실행합니다.
+
+`.github/workflows/catalog-pages.yml`이 매시간 17분(UTC, 한국도 매시 17분), main 푸시, 수동 실행 시 공개 릴리즈를 확인하고 검사 후 사이트를 배포합니다. GitHub 예약 실행은 지연되거나 비활성 저장소에서 중지될 수 있으므로 즉시 반영하려면 Actions에서 **Run workflow**를 실행하세요. 기존 등록 게임의 버전·릴리즈 링크·공개 상태만 자동 갱신하며, 번역 범위 설명과 캡처는 직접 관리합니다. 첨부가 있는 공개 릴리즈를 GitHub API 반환 순서대로 선택하므로 사전 배포본도 선택될 수 있습니다.
 
 ## 배포
 
-GitHub Pages에서 배포 브랜치의 루트를 게시합니다. `index.html`, `assets/`, `data/`, `.nojekyll`을 함께 유지합니다. 모든 내부 경로는 상대 경로여서 계정 루트와 프로젝트 Pages 주소에서 모두 동작합니다.
+GitHub Pages의 게시 소스는 **GitHub Actions**입니다. 워크플로가 `index.html`, `assets/`, `data/`, `.nojekyll`만 묶어 게시합니다. 모든 내부 경로는 상대 경로여서 계정 루트와 프로젝트 Pages 주소에서 모두 동작합니다.
 
-검사 후 `git push origin main`으로 배포합니다. 이전 프로젝트 주소는 새 루트 주소로 이동하도록 안내합니다.
+`git push origin main`으로 검사·배포가 시작됩니다. 자동 목록 커밋은 별도 빌드를 유발하지 않으므로 동일 워크플로가 Pages 아티팩트 배포까지 수행합니다. 이전 프로젝트 주소는 새 루트 주소로 이동하도록 안내합니다.
 
 원본 게임·BIOS·패치 완료 게임 파일·인증정보는 사이트에 포함하지 않습니다. 장식 그래픽은 사이트용 타이포그래피이며 게임 실행 화면이 아닙니다.
 

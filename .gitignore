@@ -3,3 +3,4 @@ __pycache__/
 qa/
 .env
 .env.*
+_site/

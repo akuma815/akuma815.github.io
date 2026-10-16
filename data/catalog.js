@@ -266,13 +266,15 @@ window.PATCH_CATALOG = {
       "english": "Ninja Jajamaru-kun",
       "platform": "NES",
       "description": "닌자 자자마루가 요괴와 싸우는 액션 게임입니다.",
-      "version": "title-menu-003",
+      "version": "v1.0",
       "available": true,
       "repository": "https://github.com/akuma815/nes-ninja-jajamaru-kun-kr-patch",
-      "release": "https://github.com/akuma815/nes-ninja-jajamaru-kun-kr-patch/releases/tag/title-menu-003",
+      "release": "https://github.com/akuma815/nes-ninja-jajamaru-kun-kr-patch/releases/tag/v1.0",
       "notes": [
         "일본판 원본 전용입니다.",
-        "이번 범위는 타이틀 로고와 1인용·2인용 메뉴입니다."
+        "v1.0: 한글 타이틀·1인용/2인용 메뉴와 적 이름 7종·공통 등장 문구를 포함합니다.",
+        "등장 문구는 제주한라산체를 사용합니다. 타이틀 밖 영문은 원문을 유지합니다.",
+        "첫 적 자연 진입과 7종 출력 제어 검증을 수행했습니다. 전체 완주·실기 검수는 미수행입니다."
       ],
       "screenshot": {
         "src": "assets/screenshots/nes-ninja-jajamaru-kun-kr-patch.png",

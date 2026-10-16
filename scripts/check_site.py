@@ -21,6 +21,9 @@ def main():
     assert '\ufffd' not in html and '<html lang="ko">' in html
     for src in p.assets:assert (ROOT/src).is_file(),src
     catalog=json.loads((ROOT/'data/catalog.json').read_text(encoding='utf-8'))
+    browser_catalog=(ROOT/'data/catalog.js').read_text(encoding='utf-8')
+    assert browser_catalog.startswith('window.PATCH_CATALOG = ') and browser_catalog.endswith(';\n')
+    assert json.loads(browser_catalog[len('window.PATCH_CATALOG = '):-2])==catalog,'Browser catalog differs from JSON'
     total=len(catalog['games']);public=sum(g['available'] for g in catalog['games'])
     assert len({g['id'] for g in catalog['games']})==len(catalog['games'])
     for g in catalog['games']:
