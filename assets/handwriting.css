@@ -1,0 +1,72 @@
+/* A school notebook's warm, slightly uneven handwriting. */
+@font-face {
+  font-family: "Gaegu";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/gaegu/Gaegu-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Gaegu";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/gaegu/Gaegu-Bold.woff2") format("woff2");
+}
+:root { --font: "Gaegu", "Malgun Gothic", system-ui, sans-serif; }
+body { font-size: 20px; line-height: 1.7; }
+.brand { font-size: 32px; letter-spacing: 0; }
+.brand small { font-size: 16px; letter-spacing: .03em; }
+.header nav { font-size: 19px; }
+.hero .eyebrow, .eyebrow { font-size: 17px; letter-spacing: .03em; }
+.hero h1 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1.2; letter-spacing: -.02em; font-weight: 700; }
+.hero-description { font-size: 21px; line-height: 1.8; }
+.hero-button { font-size: 21px; font-weight: 700; }
+.hero-meta { font-size: 17px; letter-spacing: 0; }
+h2 { font-size: 38px; letter-spacing: -.02em; }
+.catalog-summary, .search input, .available-toggle, .sort select { font-size: 19px; }
+.filter { font-size: 19px; padding: 6px 13px; }
+.result-line, .text-button { font-size: 18px; }
+.game-card h3 { font-size: 30px; line-height: 1.25; letter-spacing: -.02em; }
+.card-about { font-size: 19px; line-height: 1.6; }
+.availability, .card-footer a, .card-footer button { font-size: 18px; }
+.screenshot-caption { font-size: 17px; }
+.catalog-note, .screenshot-note { font-size: 17px; line-height: 1.7; }
+.room-caption { font-size: 17px; letter-spacing: 0; bottom: 0; }
+.room-poster small { font-size: 13px; }
+.guide-intro > p:last-child, .guide-steps p { font-size: 20px; line-height: 1.7; }
+.guide-steps h3 { font-size: 25px; }
+.notice p, .footer > p, .footer-brand span { font-size: 17px; }
+.footer-brand { font-size: 23px; }
+dialog h2 { font-size: 36px; }
+dialog h3 { font-size: 25px; }
+.dialog-about, .dialog-media figcaption, #dialog-notes, .dialog-actions { font-size: 20px; }
+.dialog-version { font-size: 18px; }
+@media (max-width: 760px) {
+  .brand { font-size: 28px; }
+  .brand small { font-size: 14px; }
+  .header nav { font-size: 16px; }
+  .hero h1 { font-size: clamp(32px, 8.7vw, 42px); }
+  .hero-description { font-size: 19px; }
+  .hero .eyebrow { font-size: 16px; }
+  .hero-button { font-size: 20px; gap: 26px; }
+  .hero-meta { font-size: 15px; }
+  .hero-meta span:first-child { max-width: none; }
+  .section-heading .eyebrow { font-size: 16px; }
+  h2 { font-size: 32px; }
+  .available-toggle, .sort select { font-size: 17px; }
+  .filter { font-size: 17px; padding: 5px 10px; }
+  .game-card h3 { font-size: 28px; }
+  .guide-intro > p:last-child, .guide-steps p { font-size: 19px; }
+  .notice p, .footer > p, .footer-brand span { font-size: 16px; }
+}
+@media (max-width: 480px) {
+  .header { gap: 12px; }
+  .header nav { font-size: 14px; gap: 12px; flex-shrink: 0; }
+  .header .github-link { padding-left: 12px; }
+}
+@media (max-width: 360px) {
+  .header { height: auto; flex-wrap: wrap; padding-top: 20px; padding-bottom: 18px; }
+  .header .brand { flex-basis: 100%; }
+  .header nav { margin-left: auto; }
+}

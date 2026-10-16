@@ -1,0 +1,30 @@
+{
+  "family": "Gaegu",
+  "designer": "JIKJI SOFT",
+  "license": "SIL OFL 1.1",
+  "upstreamCommit": "088df5c822dacc8fad9dd64dbbe5649cd6830e99",
+  "licenseSHA256": "53a9ce47085d9fef613c7ecb3730dc80d25962510bbea231b89564f58240f251",
+  "conversion": "Full font WOFF2 compression; no glyph subsetting or outline changes.",
+  "fonts": [
+    {
+      "style": "Regular",
+      "weight": 400,
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/088df5c822dacc8fad9dd64dbbe5649cd6830e99/ofl/gaegu/Gaegu-Regular.ttf",
+      "sourceSHA256": "aa52c98336f7c62e2896fc8b12b56a75d5b476d88a2f104b0980f4f7ce0adfc3",
+      "file": "Gaegu-Regular.woff2",
+      "bytes": 290556,
+      "sha256": "8314ea34638997811307b967e465af3f85139b8274f790580c3e56ad16e5fd00",
+      "glyphs": 2593
+    },
+    {
+      "style": "Bold",
+      "weight": 700,
+      "sourceUrl": "https://raw.githubusercontent.com/google/fonts/088df5c822dacc8fad9dd64dbbe5649cd6830e99/ofl/gaegu/Gaegu-Bold.ttf",
+      "sourceSHA256": "cc38a4af9506a45254d1ce07c589ec473d9e5f0be319e5a77b17c214903f8c1c",
+      "file": "Gaegu-Bold.woff2",
+      "bytes": 485728,
+      "sha256": "608b9e74ed272f45a4e57c086e4a1f2005a5478cac0dc894854772b4cfb26e9a",
+      "glyphs": 2593
+    }
+  ]
+}
