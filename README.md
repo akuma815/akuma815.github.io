@@ -1,8 +1,8 @@
 # AKUMA815 한글 패치 아카이브
 
-**사이트: https://akuma815.github.io/nds-another-code-kr-patch/**
+**사이트: https://akuma815.github.io/**
 
-현재 기존 패치 저장소의 독립된 `gh-pages` 브랜치에서 게시합니다. 전용 저장소 생성 제한이 해제되면 계정 루트 Pages로 옮길 수 있습니다. [최신 인계](docs/HANDOFF.md)
+게임과 독립된 `akuma815/akuma815.github.io` 저장소의 `main` 브랜치 루트에서 게시합니다. [최신 인계](docs/HANDOFF.md)
 
 게임별 한글 패치·최종 릴리즈·적용 안내를 모은 GitHub Pages 정적 사이트입니다.
 
@@ -34,6 +34,8 @@ python scripts/update_catalog.py --verify-remote
 ## 배포
 
 GitHub Pages에서 배포 브랜치의 루트를 게시합니다. `index.html`, `assets/`, `data/`, `.nojekyll`을 함께 유지합니다. 모든 내부 경로는 상대 경로여서 계정 루트와 프로젝트 Pages 주소에서 모두 동작합니다.
+
+검사 후 `git push origin main`으로 배포합니다. 이전 프로젝트 주소는 새 루트 주소로 이동하도록 안내합니다.
 
 원본 게임·BIOS·패치 완료 게임 파일·인증정보는 사이트에 포함하지 않습니다. 장식 그래픽은 사이트용 타이포그래피이며 게임 실행 화면이 아닙니다.
 
