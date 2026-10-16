@@ -181,12 +181,12 @@ window.PATCH_CATALOG = {
       "english": "Death Jr",
       "platform": "PSP",
       "description": "사신의 아들과 친구들이 등장하는 액션 어드벤처 게임입니다.",
-      "version": "final-20260926",
+      "version": "final-20261016",
       "available": true,
       "repository": "https://github.com/akuma815/psp-death-jr-kr-patch",
-      "release": "https://github.com/akuma815/psp-death-jr-kr-patch/releases/tag/final-20260926",
+      "release": "https://github.com/akuma815/psp-death-jr-kr-patch/releases/tag/final-20261016",
       "notes": [
-        "미국판 ULUS10027 v1.01 전용입니다.",
+        "미국판 ULUS10027 v1.01 원본 ISO 2종을 자동 인식합니다.",
         "게임 번역과 4개 영상 자막을 포함합니다.",
         "최종본의 실제 장면 및 전 구간 플레이 검수는 미완료입니다."
       ],
