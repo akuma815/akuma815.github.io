@@ -14,6 +14,15 @@
   const validUrl = (url) => typeof url === "string" && /^https:\/\/github\.com\/akuma815\/[a-zA-Z0-9._/-]+$/.test(url);
   const safeLink = (url,label,className="") => validUrl(url) ? `<a class="${esc(className)}" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${label}</a>` : "";
   const hasImage = (g) => g.screenshot && /^assets\/screenshots\/[a-z0-9-]+\.(png|webp)$/.test(g.screenshot.src);
+  const heroImage = $("hero-game-image");
+  const heroGames = games.filter(g => g.available && hasImage(g));
+  if (heroImage && heroGames.length) {
+    const game = heroGames[Math.floor(Math.random() * heroGames.length)];
+    heroImage.src = game.screenshot.src;
+    heroImage.width = Number(game.screenshot.width);
+    heroImage.height = Number(game.screenshot.height);
+    heroImage.alt = `${game.title} — ${game.screenshot.caption}`;
+  }
   const imageTag = (g) => `<img src="${esc(g.screenshot.src)}" width="${Number(g.screenshot.width)}" height="${Number(g.screenshot.height)}" loading="lazy" decoding="async" alt="${esc(g.title)} — ${esc(g.screenshot.caption)}">`;
   const photo = (g) => hasImage(g) ? `<figure class="card-photo"><button type="button" class="screenshot-open" data-details="${esc(g.id)}" aria-label="${esc(g.title)} 이미지와 상세 정보 보기">${imageTag(g)}</button><figcaption class="screenshot-caption"><span>${esc(g.screenshot.caption)}</span><span>${g.screenshot.kind==="runtime"?"GAME CAPTURE":g.screenshot.kind==="video"?"MOVIE FRAME":"GRAPHIC WORK"}</span></figcaption></figure>` : `<figure class="card-photo"><div class="missing-photo" role="img" aria-label="${esc(g.title)} 화면 캡처 준비 중"><strong>추억의 한 장면을 준비 중</strong><small>CAPTURE COMING SOON</small></div><figcaption class="screenshot-caption"><span>확인된 화면 캡처가 아직 없습니다.</span></figcaption></figure>`;
   const availableCount = games.filter(g=>g.available).length;
