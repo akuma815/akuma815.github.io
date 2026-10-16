@@ -1,5 +1,9 @@
 # AKUMA815 한글 패치 아카이브
 
+**사이트: https://akuma815.github.io/nds-another-code-kr-patch/**
+
+현재 기존 패치 저장소의 독립된 `gh-pages` 브랜치에서 게시합니다. 전용 저장소 생성 제한이 해제되면 계정 루트 Pages로 옮길 수 있습니다. [최신 인계](docs/HANDOFF.md)
+
 게임별 한글 패치·최종 릴리즈·적용 안내를 모은 GitHub Pages 정적 사이트입니다.
 
 ## 기능
