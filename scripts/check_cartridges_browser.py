@@ -1,10 +1,66 @@
 """Optional real-browser QA. Run a local server first; see README for setup."""
 import argparse
 import json
+import math
+from io import BytesIO
 from pathlib import Path
+from PIL import Image, ImageChops
 from playwright.sync_api import sync_playwright, expect
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def check_insertion_occlusion(browser, url, output):
+    """Compare frozen animation pixels with/without the pack, below the slot."""
+    context = browser.new_context(viewport={'width': 1440, 'height': 1000}, has_touch=True, reduced_motion='no-preference')
+    page = context.new_page()
+    # Delay only the reveal timer for visual sampling; normal timing is tested below.
+    def hold_reveal(route):
+        response = route.fetch()
+        script = response.text()
+        needle = 'window.setTimeout(finishInsertion,1100)'
+        assert needle in script
+        route.fulfill(response=response, body=script.replace(needle, 'window.setTimeout(finishInsertion,600000)'))
+    page.route('**/assets/app.js', hold_reveal)
+    page.goto(url, wait_until='networkidle')
+    page.evaluate('document.fonts.ready')
+    page.add_style_tag(content='* { scroll-behavior: auto !important; }')
+    kinds = ['famicom', 'advance', 'ds', 'switch', 'disc', 'umd', 'box', 'arcade']
+    for width in [1440, 390]:
+        page.set_viewport_size({'width': width, 'height': 1000})
+        for kind in kinds:
+            page.locator('.pack-pick').filter(has=page.locator('.media-' + kind)).first.evaluate('(button) => button.click()')
+            page.locator('#insert-pack img').evaluate('(img) => { img.loading = "eager"; return img.decode(); }')
+            for frame in [550, 950]:
+                page.locator('.insert-scene').evaluate('async (el, t) => { const animations = el.getAnimations({subtree:true}); await Promise.all(animations.map(a => { a.pause(); return a.ready; })); animations.forEach(a => a.currentTime = t); }', frame)
+                scene = page.locator('.insert-scene')
+                slot_box = page.locator('.machine-slot').bounding_box()
+                scene_box = scene.bounding_box()
+                clip = dict(x=math.floor(scene_box['x']), y=math.floor(scene_box['y']), width=math.ceil(scene_box['width']), height=math.ceil(scene_box['height']))
+                plane = math.ceil(slot_box['y'] + slot_box['height'] / 2 - clip['y'])
+                visible = Image.open(BytesIO(page.screenshot(clip=clip))).convert('RGB')
+                page.locator('#insert-pack').evaluate('(el) => el.style.visibility = "hidden"')
+                hidden = Image.open(BytesIO(page.screenshot(clip=clip))).convert('RGB')
+                page.locator('#insert-pack').evaluate('(el) => el.style.visibility = ""')
+                # Ignore small compositor rounding at the console's antialiased edges.
+                difference = ImageChops.difference(visible, hidden).point(lambda value: 255 if value > 6 else 0)
+                if kind == 'famicom' or difference.crop((0, plane, visible.width, visible.height)).getbbox():
+                    visible.save(output / f'occlusion-{kind}-{width}-{frame}.png')
+                    hidden.save(output / f'occlusion-hidden-{kind}-{width}-{frame}.png')
+                assert not difference.crop((0, plane, visible.width, visible.height)).getbbox(), f'pack leaks below slot: {kind}/{width}px/{frame}ms; plane={plane}; diff={difference.getbbox()}'
+                if frame == 950:
+                    assert not difference.getbbox(), f'pack still visible after full insertion: {kind}/{width}px'
+                elif kind == 'famicom':
+                    assert difference.getbbox(), 'pack should still be visible above slot during insertion'
+                if width == 1440 and kind == 'famicom' and frame == 950:
+                    # Prove this check catches the reported unmasked under-body leak.
+                    page.locator('.insert-pack-mask').evaluate('(el) => el.style.overflow = "visible"')
+                    unmasked = Image.open(BytesIO(page.screenshot(clip=clip))).convert('RGB')
+                    assert ImageChops.difference(unmasked, hidden).point(lambda value: 255 if value > 6 else 0).crop((0, plane, visible.width, visible.height)).getbbox(), 'regression control did not reproduce leak'
+                    page.locator('.insert-pack-mask').evaluate('(el) => el.style.overflow = ""')
+            page.locator('#close-dialog').evaluate('(button) => button.click()')
+            expect(page.locator('#insert-pack')).to_be_empty()
+    context.close()
 
 
 def main():
@@ -96,6 +152,8 @@ def main():
         page.keyboard.press('Escape')
         checks.append('reduced-motion setting opens introduction without waiting or insertion')
         assert not errors, errors
+        check_insertion_occlusion(browser, args.url, output)
+        checks.append('pixel occlusion at 550/950ms for all 8 media shapes on desktop/mobile; unmasked regression control detected')
         browser.close()
     result = dict(status='PASS',browser_channel=args.channel,url=args.url,checks=checks,page_errors=errors)
     (output / 'browser_checks.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n',encoding='utf-8')

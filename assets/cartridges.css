@@ -76,6 +76,8 @@
 #details[data-loading="false"] #game-introduction { animation: screen-on .3s ease-out; }
 .insert-stage { text-align: center; }
 .insert-scene { width: min(100%, 350px); height: 250px; position: relative; margin: 5px auto 0; isolation: isolate; overflow: hidden; }
+/* Slot center: 89px console + 12px floor gap - 13px slot inset. */
+.insert-pack-mask { position: absolute; inset: 0 0 88px; z-index: 2; overflow: hidden; }
 .insert-pack { position: absolute; width: 142px; height: 168px; left: calc(50% - 71px); top: 0; z-index: 2; animation: insert-cartridge 1s cubic-bezier(.4,0,.2,1) both; }
 .insert-pack .pack-shell { width: 142px; height: 168px; padding: 17px 12px 16px; border-width: 2px; border-radius: 7px 7px 3px 3px; box-shadow: inset 2px 2px #fff2, 3px 3px #0004; }
 .insert-pack .pack-label { padding: 3px; border-width: 1px; border-radius: 2px; }
@@ -104,7 +106,7 @@
 .insertion-message { color: #674e35; font-size: 23px; line-height: 1.4; margin: 6px 0 15px; }
 .insertion-message > span { display: block; font-size: 18px; color: #937857; }
 .skip-insert { display: block; margin: 0 auto; padding: 10px 12px; border: 0; background: none; color: #765132; font-size: 18px; text-decoration: underline; text-underline-offset: 4px; }
-@keyframes insert-cartridge { 0% { transform: translateY(-55px) rotate(-9deg); opacity: 0; } 20% { transform: translateY(-10px) rotate(0); opacity: 1; } 42% { transform: translateY(-10px); } 85%,100% { transform: translateY(146px); opacity: 1; } }
+@keyframes insert-cartridge { 0% { transform: translateY(-55px) rotate(-9deg); opacity: 0; } 20% { transform: translateY(-10px) rotate(0); opacity: 1; } 42% { transform: translateY(-10px); } 85%,100% { transform: translateY(180px); opacity: 1; } }
 @keyframes power-light { 0%,78% { background: #7b2d25; } 85%,100% { background: #d3e68a; box-shadow: 0 0 7px #d3e68a; } }
 @keyframes screen-on { from { opacity: .2; transform: translateY(5px); } to { opacity: 1; transform: none; } }
 html:has(#details[open]) { overflow: hidden; }
