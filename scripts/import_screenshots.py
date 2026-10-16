@@ -35,6 +35,7 @@ for slug,(folder,caption,note) in USER_CAPTURES.items():
     CURATED[slug]=(f'Games/{folder}/qa/user_capture_20261016/title.png',caption,'runtime',note)
 CURATED['psp-death-jr-kr-patch']=('Games/Death Jr/qa/public_title_20261016/title.png','타이틀 · 한글 시작 안내','runtime','기존 PPSSPP 타이틀 캡처. 로고는 원문이며 시작 안내는 한글입니다. 촬영 당시 버전과 최종 배포본의 일치 여부는 확인하지 않았습니다.')
 NATIVE_CAPTURES={
+ 'psp-valhalla-knights-kr-patch':('Valhalla Knights (Korea)','타이틀 · 원문 로고','사용자가 PPSSPP에서 촬영한 발할라 나이츠 전체 타이틀 화면입니다. 로고와 시작 안내는 원문입니다. 촬영 CHD와 최종 배포 결과 ISO의 해시 대조는 수행하지 않았습니다.'),
  'arcade-dark-seal-kr-patch':('Dark Seal','타이틀 · 원문 로고','사용자가 촬영한 FBNeo 타이틀 화면. 설치 패치 7개가 공개 v1.0과 해시 일치하며 타이틀 로고는 원문입니다.'),
  'arcade-dark-seal-2-kr-patch':('Dark Seal','타이틀 · 원문 로고','사용자가 촬영한 FBNeo 타이틀 화면. 현재 설치 패치 9개가 공개 v1.0.3과 해시 일치하며 타이틀 로고는 원문입니다.'),
  'switch-tenshi-no-uta-kr-patch':('Tenshi no Uta','게임 소개·한글 메뉴','사용자가 Citron에서 촬영한 Switch판 게임 소개·한글 메뉴 화면입니다. 현재 설치 패치와 공개 배포본의 일부 컨테이너가 달라 최종 배포본과 동일한 화면으로 확정하지 않았습니다.'),

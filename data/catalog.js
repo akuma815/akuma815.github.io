@@ -544,7 +544,23 @@ window.PATCH_CATALOG = {
         "Valhalla Knights (Korea).iso의 지정 SHA-256과 일치하는 원본 전용입니다.",
         "패치 적용 결과는 원본보다 작습니다. 크기와 SHA-256을 함께 확인하세요.",
         "기존 배포 안내에는 전체 플레이 검증 완료 여부가 명시되어 있지 않습니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/psp-valhalla-knights-kr-patch-capture-20261016.png",
+        "caption": "타이틀 · 원문 로고",
+        "kind": "runtime",
+        "width": 4800,
+        "height": 2720,
+        "source": "Games/Valhalla Knights (Korea)/qa/user_public_capture_20261016/psp-valhalla-knights-kr-patch/screen.png",
+        "sourceSHA256": "f5d557400a10593479d494e50df5cc990355630446bba02ad5a1ed8b53dc7b36",
+        "assetSHA256": "f5d557400a10593479d494e50df5cc990355630446bba02ad5a1ed8b53dc7b36",
+        "pixelSHA256": "0e2d7225a9b898a59c64b101a6450e4891742b1684b27238227709ec73e79ff7",
+        "sourceNote": "사용자가 PPSSPP에서 촬영한 발할라 나이츠 전체 타이틀 화면입니다. 로고와 시작 안내는 원문입니다. 촬영 CHD와 최종 배포 결과 ISO의 해시 대조는 수행하지 않았습니다.",
+        "providedBy": "user",
+        "captureDate": "2026-10-16",
+        "originalCapturePath": "H:/ppsspp/memstick/PSP/SCREENSHOT/ULKS46133_00000.png",
+        "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
+      }
     }
   ]
 };
