@@ -21,6 +21,7 @@ body { font-size: 20px; line-height: 1.7; }
 .hero .eyebrow, .eyebrow { font-size: 17px; letter-spacing: .03em; }
 .hero h1 { font-size: clamp(36px, 4.6vw, 60px); line-height: 1.2; letter-spacing: -.02em; font-weight: 700; }
 .hero-description { font-size: 21px; line-height: 1.8; }
+.hero-small { font-family: var(--font); font-size: 17px; line-height: 1.7; letter-spacing: 0; }
 .hero-button { font-size: 21px; font-weight: 700; }
 .hero-meta { font-size: 17px; letter-spacing: 0; }
 h2 { font-size: 38px; letter-spacing: -.02em; }
@@ -48,6 +49,7 @@ dialog h3 { font-size: 25px; }
   .header nav { font-size: 16px; }
   .hero h1 { font-size: clamp(32px, 8.7vw, 42px); }
   .hero-description { font-size: 19px; }
+  .hero-small { font-size: 16px; }
   .hero .eyebrow { font-size: 16px; }
   .hero-button { font-size: 20px; gap: 26px; }
   .hero-meta { font-size: 15px; }
