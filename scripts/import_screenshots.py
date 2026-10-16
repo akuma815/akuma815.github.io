@@ -24,6 +24,16 @@ CURATED={
  'nes-tiny-toon-adventures-2-kr-patch':('Games/Tiny Toon Adventures 2/qa/title/title_kr_ai_003_attract/frame_00840.png','한글 타이틀','runtime','title_kr_ai_003_attract Mesen 캡처'),
 }
 
+# Preserve user attachments as PNG without format conversion on future imports.
+USER_CAPTURES = {
+ 'nds-another-code-kr-patch': ('Another  Code', '한글 타이틀', '사용자 제공 어나더 코드 타이틀 화면. 이번 실행 ROM은 최종 배포 패치 결과 해시와 일치합니다.'),
+ 'pc-shivers-kr-patch': ('Shivers1', '한글 타이틀', '사용자 제공 쉬버스 타이틀 화면. RC1과 같은 025 커스텀 실행기를 사용했으며 메뉴 일부는 영어로 표시됩니다.'),
+ 'ps1-rakugaki-showtime-kr-patch': ('Rakugaki Showtime', '타이틀 · 한글 시작 안내', '사용자 제공 라쿠가키 쇼타임 전체 타이틀 화면. 대형 로고는 원문이며 양옆 시작 안내는 한글입니다.'),
+ 'psp-prinny-kr-patch': ('Prinny - Ore ga Shujinkou de Iinsuka', '한글 타이틀·메뉴', '사용자 제공 프리니 타이틀·메뉴 화면. 촬영 당시 FPS 표시와 화면 비율을 그대로 보존했습니다.'),
+}
+for slug,(folder,caption,note) in USER_CAPTURES.items():
+    CURATED[slug]=(f'Games/{folder}/qa/user_capture_20261016/title.png',caption,'runtime',note)
+
 def main():
     dest=SITE/'assets/screenshots';dest.mkdir(exist_ok=True)
     records={}
@@ -32,7 +42,9 @@ def main():
         with Image.open(src) as image:
             width,height=image.size
             pixels=image.convert('RGBA').tobytes()
-            if src.stat().st_size>200000:
+            if slug in USER_CAPTURES:
+                dst=dest/(slug+'-user-20261016.png');shutil.copyfile(src,dst)
+            elif src.stat().st_size>200000:
                 dst=dest/(slug+'.webp')
                 image.save(dst,'WEBP',lossless=True,quality=100,method=6,exact=True)
             else:

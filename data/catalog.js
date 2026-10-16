@@ -17,16 +17,19 @@ window.PATCH_CATALOG = {
         "패치 적용·정적 검증 기록이 있으며, 최종 수정본의 전 구간 실플레이 검수는 미완료입니다."
       ],
       "screenshot": {
-        "src": "assets/screenshots/nds-another-code-kr-patch.png",
-        "caption": "오프닝 한글 그래픽 비교",
-        "kind": "graphics",
-        "width": 1280,
-        "height": 490,
-        "source": "web/akuma815.github.io/qa/another_embedded_4.png",
-        "sourceSHA256": "293cebf9b5dc26cd187c49a7e53273aa034aa4fc965e84d8dc5d64110f70385b",
-        "assetSHA256": "293cebf9b5dc26cd187c49a7e53273aa034aa4fc965e84d8dc5d64110f70385b",
-        "pixelSHA256": "0391bc18025ea61834c6ba3de2275b54f064a97d6874723cef724d04eb834f3b",
-        "sourceNote": "공개 작업기 내 오프닝 그래픽 비교. 실제 게임 캡처가 아닌 비교 자료입니다."
+        "src": "assets/screenshots/nds-another-code-kr-patch-user-20261016.png",
+        "caption": "한글 타이틀",
+        "kind": "runtime",
+        "width": 1151,
+        "height": 866,
+        "source": "Games/Another  Code/qa/user_capture_20261016/title.png",
+        "sourceSHA256": "d71ab52400d8cd6ad292ee7709096c5dae0b55876ee2c36141b5810ea9617c4e",
+        "assetSHA256": "d71ab52400d8cd6ad292ee7709096c5dae0b55876ee2c36141b5810ea9617c4e",
+        "pixelSHA256": "3e58cc108fe7d0900cd0aaaebe6a665ca5beeda2274407a489be401887f2ec56",
+        "sourceNote": "사용자 제공 어나더 코드 타이틀 화면. 이번 실행 ROM은 최종 배포 패치 결과 해시와 일치합니다.",
+        "providedBy": "user",
+        "attachmentDate": "2026-10-16",
+        "preservation": "Chat attachment bytes copied unchanged; no crop, retouch or rescale performed locally."
       }
     },
     {
@@ -290,16 +293,19 @@ window.PATCH_CATALOG = {
         "PSP 펌웨어의 세이브 목록 제목·설명 일부는 호환성을 위해 일본어로 유지됩니다."
       ],
       "screenshot": {
-        "src": "assets/screenshots/psp-prinny-kr-patch.png",
-        "caption": "한글 메뉴 그래픽 · 캡처 준비 중",
-        "kind": "graphics",
-        "width": 512,
-        "height": 256,
-        "source": "Games/Prinny - Ore ga Shujinkou de Iinsuka/work/live/base_menu/091591e09a963304c67a3ca6.png",
-        "sourceSHA256": "f5dd9b65bc85483f41e61ceb2212502f8df34f824ab2973d60c95f45ca679eba",
-        "assetSHA256": "f5dd9b65bc85483f41e61ceb2212502f8df34f824ab2973d60c95f45ca679eba",
-        "pixelSHA256": "94f283f144961ef6315b93ac1d98b132825886301221eb03d813f4120959b14d",
-        "sourceNote": "한글 메뉴 텍스처 작업 이미지. 게임 전체 화면 캡처가 아닙니다."
+        "src": "assets/screenshots/psp-prinny-kr-patch-user-20261016.png",
+        "caption": "한글 타이틀·메뉴",
+        "kind": "runtime",
+        "width": 2048,
+        "height": 1153,
+        "source": "Games/Prinny - Ore ga Shujinkou de Iinsuka/qa/user_capture_20261016/title.png",
+        "sourceSHA256": "0680825a6dd51d5a94955ced796165f7082cdf13ab9bb465149059fbf1ab4eb2",
+        "assetSHA256": "0680825a6dd51d5a94955ced796165f7082cdf13ab9bb465149059fbf1ab4eb2",
+        "pixelSHA256": "335e7e343fd6d8159b4bca6a86a747658674a7b4861e735e4874d1686afb151e",
+        "sourceNote": "사용자 제공 프리니 타이틀·메뉴 화면. 촬영 당시 FPS 표시와 화면 비율을 그대로 보존했습니다.",
+        "providedBy": "user",
+        "attachmentDate": "2026-10-16",
+        "preservation": "Chat attachment bytes copied unchanged; no crop, retouch or rescale performed locally."
       }
     },
     {
@@ -318,16 +324,19 @@ window.PATCH_CATALOG = {
         "일부 영상 자막은 초벌이며, 7개 영상 전체의 최종 런타임 검증은 미완료입니다."
       ],
       "screenshot": {
-        "src": "assets/screenshots/ps1-rakugaki-showtime-kr-patch.webp",
-        "caption": "한글 메뉴 · 작업 당시 캡처",
+        "src": "assets/screenshots/ps1-rakugaki-showtime-kr-patch-user-20261016.png",
+        "caption": "타이틀 · 한글 시작 안내",
         "kind": "runtime",
-        "width": 1000,
-        "height": 1000,
-        "source": "Games/Rakugaki Showtime/work/runtime/hangul_atlas_001_title/title_013.png",
-        "sourceSHA256": "486593937f921e5425db4fc509885c76a7d920c77163290f92b86b109c381fe0",
-        "assetSHA256": "0a9966d842494216be874b20bd030a8e51cf2666eff04ff3a17badf31a733a9a",
-        "pixelSHA256": "30a663165b67dce2e8122950f8d646e99bc49e8aca32f117643289835268cd37",
-        "sourceNote": "hangul_atlas_001_title DuckStation 캡처. 대형 로고는 원문입니다."
+        "width": 2048,
+        "height": 1121,
+        "source": "Games/Rakugaki Showtime/qa/user_capture_20261016/title.png",
+        "sourceSHA256": "b1ef1b2f8daba9deaa4014bb3c4417ec04c03e00fc9980104e8d8a7c2974daa4",
+        "assetSHA256": "b1ef1b2f8daba9deaa4014bb3c4417ec04c03e00fc9980104e8d8a7c2974daa4",
+        "pixelSHA256": "ccb0697e984c85aabd43bfbce6c4010bd33e5830e885a8b154e44e9b40139171",
+        "sourceNote": "사용자 제공 라쿠가키 쇼타임 전체 타이틀 화면. 대형 로고는 원문이며 양옆 시작 안내는 한글입니다.",
+        "providedBy": "user",
+        "attachmentDate": "2026-10-16",
+        "preservation": "Chat attachment bytes copied unchanged; no crop, retouch or rescale performed locally."
       }
     },
     {
@@ -347,16 +356,19 @@ window.PATCH_CATALOG = {
         "전체 게임의 모든 장면을 새로 검수한 완전 번역판이라는 의미는 아닙니다."
       ],
       "screenshot": {
-        "src": "assets/screenshots/pc-shivers-kr-patch.webp",
-        "caption": "한글 타이틀 · 작업 당시 캡처",
+        "src": "assets/screenshots/pc-shivers-kr-patch-user-20261016.png",
+        "caption": "한글 타이틀",
         "kind": "runtime",
-        "width": 661,
-        "height": 529,
-        "source": "Games/Shivers1/qa/screenshots/scummvm/full_audio_subtitles_017_20260903_01/capture_027s.png",
-        "sourceSHA256": "35fbb7922a2093998fff412f25d404204b4fa1bffa9dd22be31ace872afeba08",
-        "assetSHA256": "3ae3dae96ba7a1258bbe07d5cf990d739fcd59ac1078baf82f24596d0a631343",
-        "pixelSHA256": "f6de89834af4909e3a19c69064e98f1cec0f511d4cd99555554ef2a1e5dbfb77",
-        "sourceNote": "full_audio_subtitles_017 커스텀 ScummVM 캡처"
+        "width": 1260,
+        "height": 1044,
+        "source": "Games/Shivers1/qa/user_capture_20261016/title.png",
+        "sourceSHA256": "a800d94562c92565cbc9574ce9e276d3335b64a3c818fe3b45af0784941a2a7b",
+        "assetSHA256": "a800d94562c92565cbc9574ce9e276d3335b64a3c818fe3b45af0784941a2a7b",
+        "pixelSHA256": "f484d4920e5f4ccda403a6fe8122e4967c750d3e877e9b7c328775b3ab0c2ec2",
+        "sourceNote": "사용자 제공 쉬버스 타이틀 화면. RC1과 같은 025 커스텀 실행기를 사용했으며 메뉴 일부는 영어로 표시됩니다.",
+        "providedBy": "user",
+        "attachmentDate": "2026-10-16",
+        "preservation": "Chat attachment bytes copied unchanged; no crop, retouch or rescale performed locally."
       }
     },
     {
