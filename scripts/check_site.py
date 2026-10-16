@@ -5,6 +5,7 @@ from html.parser import HTMLParser
 import json,re
 import quickjs
 from PIL import Image
+from generate_game_pages import render_game_page
 
 ROOT=Path(__file__).resolve().parents[1]
 class HTMLCheck(HTMLParser):
@@ -39,8 +40,16 @@ def main():
             if image.get('pixelSHA256'):
                 with Image.open(f) as im:assert hashlib.sha256(im.convert('RGBA').tobytes()).hexdigest()==image['pixelSHA256']
             assert image['kind'] in {'runtime','graphics','video'} and image['sourceNote']
+        shared=render_game_page(html,g)
+        parsed=HTMLCheck();parsed.feed(shared)
+        assert len(parsed.ids)==len(set(parsed.ids))
+        assert '<base href="../../">' in shared
+        assert f'/games/{g["id"]}/' in shared and '<link rel="canonical"' in shared
+        assert '<meta property="og:url"' in shared
+        assert '<meta property="og:image"' in shared if g.get('screenshot') else True
     ctx=quickjs.Context()
     ctx.eval('new Function('+json.dumps((ROOT/'assets/community.js').read_text(encoding='utf-8'))+')')
+    ctx.eval('new Function('+json.dumps((ROOT/'assets/sharing.js').read_text(encoding='utf-8'))+')')
     ctx.eval('''
     var window=globalThis;
     var elements={}; var platformButtons=[];

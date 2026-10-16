@@ -16,9 +16,11 @@
   <link rel="stylesheet" href="assets/handwriting.css">
   <link rel="stylesheet" href="assets/cartridges.css">
   <link rel="stylesheet" href="assets/community.css">
+  <link rel="stylesheet" href="assets/sharing.css">
   <script src="data/catalog.js" defer></script>
   <script src="assets/community.js" defer></script>
   <script src="assets/app.js" defer></script>
+  <script src="assets/sharing.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#catalog">패치 목록으로 바로 가자</a>
@@ -38,6 +40,7 @@
         <div class="tools"><label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">게임명 또는 플랫폼 검색</span><input id="search" type="search" placeholder="어떤 게임을 찾고 있어?" autocomplete="off"></label><label class="available-toggle"><input id="available-only" type="checkbox"><span>지금 받을 수 있는 패치만</span></label><label class="sort"><span class="sr-only">정렬 방식</span><select id="sort"><option value="available">배포 중인 패치 먼저</option><option value="title">이름순</option><option value="platform">플랫폼순</option></select></label></div>
         <div class="filters" id="filters" role="group" aria-label="플랫폼 필터"></div>
         <div class="result-line"><p id="result-count" role="status" aria-live="polite"></p><button id="reset" class="text-button" type="button" hidden>처음처럼 보기 ↺</button></div>
+        <p id="game-link-feedback" role="status" aria-live="polite" hidden></p>
         <p class="shelf-invitation"><span aria-hidden="true">✦</span> 마음에 드는 팩을 골라 봐. 게임기에 쏙 꽂아 줄게!</p>
         <div class="game-grid" id="games"></div>
         <div class="empty-state" id="empty" hidden><span aria-hidden="true">⌕</span><h3>어라, 그 게임은 안 보이네!</h3><p>다른 이름으로 찾아볼까? 게임기도 다시 골라 봐.</p><button class="secondary-button" id="empty-reset" type="button">모든 패치 다시 보기</button></div>
@@ -72,6 +75,11 @@
         <button type="button" id="tab-bugs" role="tab" aria-selected="false" aria-controls="panel-bugs" tabindex="-1" data-community-tab="bugs">버그 칠판</button>
       </div>
       <section id="panel-intro" role="tabpanel" aria-labelledby="tab-intro">
+      <div class="game-share">
+        <label for="game-share-url">이 게임, 친구랑 같이 볼래?</label>
+        <div class="game-share-controls"><input id="game-share-url" type="url" readonly aria-label="이 게임의 공유 주소" spellcheck="false"><button id="copy-game-link" type="button">이 게임 링크 복사</button></div>
+        <p id="game-share-feedback" role="status" aria-live="polite"></p>
+      </div>
       <figure id="dialog-media" class="dialog-media" hidden></figure>
       <p class="dialog-about" id="dialog-about"></p><div class="dialog-version" id="dialog-version"></div>
       <h3>시작 전에 이것도 읽어 줘!</h3><ul id="dialog-notes"></ul><div class="dialog-actions" id="dialog-actions"></div>

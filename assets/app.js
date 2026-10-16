@@ -65,12 +65,10 @@
     // A skipped animation must not leave focus on a now-hidden button.
     if (skipHadFocus) $("close-dialog").focus();
   }
-  $("games").addEventListener("click",e=>{
-    const b=e.target.closest("[data-details]");if(!b)return;
-    const g=games.find(g=>g.id===b.dataset.details);if(!g)return;
-    if ($("details").open) return;
+  function openGame(g, b=null, instant=false) {
+    const wasOpen=$("details").open;
     window.clearTimeout(insertionTimer);
-    previousFocus=b;selectedTitle=g.title;$("dialog-title").textContent=g.title;$("dialog-platform").textContent=platformNames[g.platform];$("dialog-about").textContent=g.description;
+    previousFocus=b||$("search");selectedTitle=g.title;$("dialog-title").textContent=g.title;$("dialog-platform").textContent=platformNames[g.platform];$("dialog-about").textContent=g.description;
     $("dialog-media").hidden=!hasImage(g);
     $("dialog-media").innerHTML=hasImage(g)?imageTag(g):"";
     $("dialog-version").innerHTML=`<span>${g.available?"배포 중":"공개 등록 준비"}</span> · ${esc(g.version)}`;
@@ -83,12 +81,23 @@
     $("game-introduction").hidden=true;
     $("insert-status").textContent=`${g.title} 팩을 게임기에 넣고 있어.`;
     $("details").dataset.loading="true";
-    $("details").showModal();
+    if (!wasOpen) $("details").showModal();
     $("details").scrollTop=0;
     $("close-dialog").focus();
-    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) finishInsertion();
+    if (instant || (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches)) finishInsertion();
     else insertionTimer=window.setTimeout(finishInsertion,1100);
+    window.PATCH_LINKS?.opened(g);
+  }
+  $("games").addEventListener("click",e=>{
+    const b=e.target.closest("[data-details]");if(!b)return;
+    const g=games.find(g=>g.id===b.dataset.details);if(!g)return;
+    if ($("details").open) return;
+    openGame(g,b);
   });
+  window.PATCH_DETAILS={open(id,{instant=false}={}){
+    const g=games.find(game=>game.id===id);if(!g)return false;
+    openGame(g,null,instant);return true;
+  }};
   $("skip-insert").addEventListener("click",finishInsertion);
   $("close-dialog").addEventListener("click",()=>$("details").close());
   $("details").addEventListener("close",()=>{
@@ -96,6 +105,7 @@
     window.clearTimeout(insertionTimer);insertionTimer=null;
     $("insert-pack").innerHTML="";
     $("insert-status").textContent="";
+    window.PATCH_LINKS?.closed();
     previousFocus?.focus();
   });
   $("details").addEventListener("click",e=>{if(e.target===$("details")){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});

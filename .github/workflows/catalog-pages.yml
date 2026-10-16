@@ -48,6 +48,7 @@ jobs:
           mkdir _site
           cp index.html .nojekyll _site/
           cp -R assets data _site/
+          python scripts/generate_game_pages.py --out _site
       - uses: actions/upload-pages-artifact@v4
         with:
           path: _site

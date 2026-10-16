@@ -37,6 +37,10 @@ python scripts/check_cartridges_browser.py
 
 방명록·신고의 운영 방식, 새 게임 연결과 브라우저 검사 방법은 [담벼락과 칠판 안내](docs/COMMUNITY.md)를 따릅니다. 글은 각 게임 GitHub 저장소의 Issues에 공개로 저장합니다. 별도 서버나 사이트 내 토큰 없이 읽고, 작성은 방문자가 GitHub 계정으로 최종 등록합니다.
 
+## 게임별 공유 링크
+
+게임 소개에서 **이 게임 링크 복사**를 누르면 해당 게임을 바로 여는 주소를 복사합니다. 예: [톰과 제리](https://akuma815.github.io/games/nes-tom-and-jerry-kr-patch/). 개별 페이지에 게임명·설명·타이틀 이미지의 공유 미리보기 정보를 넣습니다. [주소 규칙과 검사 안내](docs/SHARING.md).
+
 ## 목록 갱신
 
 `data/catalog.json`이 목록 원장입니다. `data/catalog.js`는 같은 내용을 브라우저에서 읽을 수 있도록 생성한 파일입니다.
