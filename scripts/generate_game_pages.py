@@ -9,7 +9,7 @@ def render_game_page(template,game,site_url=SITE_URL):
     slug=game['id']
     if not re.fullmatch(r'[a-z0-9-]+',slug):raise ValueError('Invalid game ID: '+slug)
     esc=lambda v:html.escape(str(v),quote=True)
-    title=f"{game['title']} 한글 패치 {game['version']} | AKUMA815"
+    title=f"{game['title']} 한글 패치 {game['version']} | akuma815"
     url=urljoin(site_url.rstrip('/')+'/',f'games/{slug}/')
     text=template.replace('<head>','<head>\n  <base href="../../">',1)
     text,n=re.subn(r'<title>.*?</title>',lambda _:f'<title>{esc(title)}</title>',text,count=1);assert n==1

@@ -1,4 +1,4 @@
-# AKUMA815 한글 패치 아카이브
+# akuma815 — 우리들의 작은 게임방
 
 **사이트: https://akuma815.github.io/**
 

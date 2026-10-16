@@ -4,7 +4,7 @@
   if (!Array.isArray(games)||!window.PATCH_DETAILS) return;
   const $=id=>document.getElementById(id);
   const root=new URL("./",document.baseURI);
-  const homeTitle="AKUMA815 — 한글 패치 아카이브";
+  const homeTitle="akuma815 — 우리들의 작은 게임방";
   const find=id=>games.find(game=>game.id===id);
   const gameUrl=game=>new URL("games/"+encodeURIComponent(game.id)+"/",root).href;
   let syncing=false;
@@ -23,7 +23,7 @@
       selected=game;
       $("game-share-url").value=gameUrl(game);
       $("game-share-feedback").textContent="";
-      document.title=game.title+" 한글 패치 "+game.version+" | AKUMA815";
+      document.title=game.title+" 한글 패치 "+game.version+" | akuma815";
       if (!syncing && requestedGame()!==game.id) {
         const url=new URL(window.location.href);
         url.searchParams.set("game",game.id);url.hash="";

@@ -38,6 +38,11 @@ def main():
             context=browser.new_context(viewport=dict(width=1440,height=1000),permissions=['clipboard-read','clipboard-write'])
             page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)))
             page.goto(base,wait_until='networkidle')
+            expect(page).to_have_title('akuma815 — 우리들의 작은 게임방')
+            expect(page.locator('meta[property="og:title"]')).to_have_attribute('content','akuma815 — 우리들의 작은 게임방')
+            expect(page.locator('.brand')).to_contain_text('akuma815')
+            expect(page.locator('.footer-brand')).to_have_text('akuma815 우리들의 작은 게임방')
+            checks.append('Home/browser/social title and header/footer use lowercase akuma815 and the game-room name')
             page.locator(f'.pack-pick[data-details="{slug}"]').click()
             expect(page).to_have_url(base+'?game='+slug)
             expect(page.locator('#insert-stage')).to_be_visible()
@@ -55,11 +60,13 @@ def main():
             expect(page.locator('#dialog-actions a.primary')).to_have_attribute('href',by_id[slug]['release'])
             expect(page.locator('#game-share-url')).to_have_value(canonical)
             assert page.title().startswith('톰과 제리 한글 패치')
+            assert page.title().endswith('| akuma815')
             assert page.locator('#details').evaluate('(el)=>el.scrollWidth<=el.clientWidth')
             page.locator('#details').screenshot(path=str(a.out/'desktop-game.png'))
             page.keyboard.press('Escape');expect(page.locator('#details')).not_to_be_visible()
             assert page.url==base+'#catalog'
             page.reload(wait_until='networkidle');expect(page.locator('#details')).not_to_be_visible()
+            expect(page).to_have_title('akuma815 — 우리들의 작은 게임방')
             checks.append('Static game address opens correct image and release; Escape returns to catalog and stays closed after reload')
             page.goto(base,wait_until='networkidle');page.locator(f'.pack-pick[data-details="{slug}"]').click()
             page.go_back();expect(page.locator('#details')).not_to_be_visible()
@@ -86,6 +93,8 @@ def main():
                 meta=Metadata();meta.feed(response.text());url=base+'games/'+game['id']+'/'
                 assert meta.tags['og:url']==meta.tags['canonical']==url
                 assert game['title'] in meta.tags['og:title'] and meta.tags['og:description']==game['description']
+                assert meta.tags['og:title'].endswith('| akuma815')
+                assert meta.tags['og:site_name']=='akuma815 — 우리들의 작은 게임방'
                 if game.get('screenshot'):assert meta.tags['og:image']==base+game['screenshot']['src']
             checks.append(f'All {len(games)} game entry pages have HTTP 200, game-specific canonical/title/description/image metadata')
             mobile=browser.new_context(viewport=dict(width=390,height=844),is_mobile=True,has_touch=True,permissions=['clipboard-read','clipboard-write'])
