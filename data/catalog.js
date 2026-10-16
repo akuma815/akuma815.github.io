@@ -128,16 +128,20 @@ window.PATCH_CATALOG = {
         "FBNeo IPS 패치이며 부모 세트만 실행하면 적용되지 않습니다."
       ],
       "screenshot": {
-        "src": "assets/screenshots/arcade-dark-seal-kr-patch.png",
-        "caption": "한글 프롤로그",
+        "src": "assets/screenshots/arcade-dark-seal-kr-patch-capture-20261016.png",
+        "caption": "타이틀 · 원문 로고",
         "kind": "runtime",
-        "width": 960,
-        "height": 752,
-        "source": "Games/Dark Seal/darksealj/work/dumps_kr_attract/screenshot.png",
-        "sourceSHA256": "a5314bf097e968b5c55c9cf731eb7135562a7b0d6762d3828ecc3d25aa0dd98b",
-        "assetSHA256": "a5314bf097e968b5c55c9cf731eb7135562a7b0d6762d3828ecc3d25aa0dd98b",
-        "pixelSHA256": "512433a7d4b0034c29bba55a23eff24b692e89a2fe088d42aa515dd92f599eb1",
-        "sourceNote": "dumps_kr_attract 게임 캡처"
+        "width": 256,
+        "height": 240,
+        "source": "Games/Dark Seal/qa/user_public_capture_20261016/arcade-dark-seal-kr-patch/screen.png",
+        "sourceSHA256": "a6b34b7edb664b528c2dd71bae63dd4606718a47b2f2d80e820759ab7bf54579",
+        "assetSHA256": "a6b34b7edb664b528c2dd71bae63dd4606718a47b2f2d80e820759ab7bf54579",
+        "pixelSHA256": "79af48d1ce53edc518f21289a081cc593702fd1f617eca2bcfae31640a4b3458",
+        "sourceNote": "사용자가 촬영한 FBNeo 타이틀 화면. 설치 패치 7개가 공개 v1.0과 해시 일치하며 타이틀 로고는 원문입니다.",
+        "providedBy": "user",
+        "captureDate": "2026-10-16",
+        "originalCapturePath": "H:/FBNeo v1.0.0.03/screenshots/darksealj-10-16-153028.png",
+        "preservation": "Native emulator PNG copied unchanged; no crop, rescale, retouch or format conversion."
       }
     },
     {
@@ -155,16 +159,20 @@ window.PATCH_CATALOG = {
         "FBNeo IPS 패치이며 ROM 이름과 CRC가 일치해야 합니다."
       ],
       "screenshot": {
-        "src": "assets/screenshots/arcade-dark-seal-2-kr-patch.png",
-        "caption": "한글 프롤로그 · v1.0.1 캡처",
+        "src": "assets/screenshots/arcade-dark-seal-2-kr-patch-capture-20261016.png",
+        "caption": "타이틀 · 원문 로고",
         "kind": "runtime",
-        "width": 960,
-        "height": 752,
-        "source": "Games/Dark Seal/darkseal2/work/dumps_Korean_v101_check/screenshot.png",
-        "sourceSHA256": "05f9fd3d8baebfcf287fc4bb98f17df1def0162b21dfebbdc51fcedae31b42f3",
-        "assetSHA256": "05f9fd3d8baebfcf287fc4bb98f17df1def0162b21dfebbdc51fcedae31b42f3",
-        "pixelSHA256": "44155656a51b70d5edeac56bdf72afc2b63e3a61ca5102d3769ccf8dd594a8de",
-        "sourceNote": "dumps_Korean_v101_check 게임 캡처"
+        "width": 320,
+        "height": 240,
+        "source": "Games/Dark Seal/qa/user_public_capture_20261016/arcade-dark-seal-2-kr-patch/screen.png",
+        "sourceSHA256": "fd01d1f95b537d4c127c6bdeb3f0a4f338cf0fd50420e02eadaf44cd158e5184",
+        "assetSHA256": "fd01d1f95b537d4c127c6bdeb3f0a4f338cf0fd50420e02eadaf44cd158e5184",
+        "pixelSHA256": "367884b8ff6b885f118bfe5ad57905e9045d666de93fc968bfbf164e7e70f9ba",
+        "sourceNote": "사용자가 촬영한 FBNeo 타이틀 화면. 현재 설치 패치 9개가 공개 v1.0.3과 해시 일치하며 타이틀 로고는 원문입니다.",
+        "providedBy": "user",
+        "captureDate": "2026-10-16",
+        "originalCapturePath": "H:/FBNeo v1.0.0.03/screenshots/darkseal2-10-16-153212.png",
+        "preservation": "Native emulator PNG copied unchanged; no crop, rescale, retouch or format conversion."
       }
     },
     {
@@ -387,7 +395,23 @@ window.PATCH_CATALOG = {
         "Title ID 010096F021294000 전용 RomFS LayeredFS 모드입니다.",
         "원본 컨테이너를 교체하지 말고 패치 파일 4개를 함께 설치하세요.",
         "이번 등록은 기존 모드 파일의 포장과 정적 검사이며 새 게임 실행 검수는 하지 않았습니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/switch-tenshi-no-uta-kr-patch-capture-20261016.png",
+        "caption": "게임 소개·한글 메뉴",
+        "kind": "runtime",
+        "width": 3840,
+        "height": 2160,
+        "source": "Games/Tenshi no Uta/qa/user_public_capture_20261016/switch-tenshi-no-uta-kr-patch/screen.png",
+        "sourceSHA256": "63c1ec6f3fb29d76f30259dc76f6ffd553ba90a0285c31c361d79561934bbaa3",
+        "assetSHA256": "63c1ec6f3fb29d76f30259dc76f6ffd553ba90a0285c31c361d79561934bbaa3",
+        "pixelSHA256": "73f6607b624243e8f7cb675da936794eab494b4864ca14b3e579695c0615484a",
+        "sourceNote": "사용자가 Citron에서 촬영한 Switch판 게임 소개·한글 메뉴 화면입니다. 현재 설치 패치와 공개 배포본의 일부 컨테이너가 달라 최종 배포본과 동일한 화면으로 확정하지 않았습니다.",
+        "providedBy": "user",
+        "captureDate": "2026-10-16",
+        "originalCapturePath": "H:/Citron NEO/user/screenshots/010096f021294000_2026-10-16_15-21-59-967.png",
+        "preservation": "Native emulator PNG copied unchanged; no crop, rescale, retouch or format conversion."
+      }
     },
     {
       "id": "switch-tenshi-no-uta-2-kr-patch",
@@ -403,7 +427,23 @@ window.PATCH_CATALOG = {
         "Switch Title ID 010047B021296000 전용이며 PC Engine판과 호환되지 않습니다.",
         "기존 V1.5 Final.7z의 모드 파일 4개를 변경 없이 배포합니다.",
         "원본 컨테이너를 교체하지 말고 동일 버전의 패치 파일을 함께 설치하세요."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/switch-tenshi-no-uta-2-kr-patch-capture-20261016.png",
+        "caption": "게임 소개·한글 메뉴",
+        "kind": "runtime",
+        "width": 3840,
+        "height": 2160,
+        "source": "Games/Tenshi no Uta 2/qa/user_public_capture_20261016/switch-tenshi-no-uta-2-kr-patch/screen.png",
+        "sourceSHA256": "d302b4da59a260a8f8cb913ae13a329455d80c717261650bac0074062602d9e5",
+        "assetSHA256": "d302b4da59a260a8f8cb913ae13a329455d80c717261650bac0074062602d9e5",
+        "pixelSHA256": "9eaaba87aa468a0f4cc8a845e61c7ec5f4ee25da9e3e45415b0c94170948ff4d",
+        "sourceNote": "사용자가 Citron에서 촬영한 Switch판 게임 소개·한글 메뉴 화면입니다. 설치 패치와 공개 배포본의 파일별 일치는 대조하지 않았습니다.",
+        "providedBy": "user",
+        "captureDate": "2026-10-16",
+        "originalCapturePath": "H:/Citron NEO/user/screenshots/010047b021296000_2026-10-16_15-23-06-619.png",
+        "preservation": "Native emulator PNG copied unchanged; no crop, rescale, retouch or format conversion."
+      }
     },
     {
       "id": "pce-tenshi-no-uta-2-kr-patch",

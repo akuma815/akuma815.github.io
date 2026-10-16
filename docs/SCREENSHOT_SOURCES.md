@@ -1,6 +1,6 @@
 # 패치 목록 이미지 출처
 
-한글 타이틀 화면을 우선 사용합니다. 사용자 제공 캡처는 첨부된 PNG 바이트를 그대로 복사했습니다. 이전 버전 캡처와 장면 확인을 최종판 전체 플레이 검증으로 확대하지 않습니다.
+사용자가 촬영한 전체 화면과 기존 검증 이미지를 사용합니다. 새 캡처 PNG는 바이트 그대로 보존하며 자르거나 보정하지 않습니다. 촬영 장면·설치 패치 확인을 전체 플레이 검수로 확대하지 않습니다.
 
 | 게임 ID | 종류 | 설명 | 원본 SHA-256 |
 | --- | --- | --- | --- |
@@ -8,8 +8,8 @@
 | nes-battletoads-kr-patch | runtime | final_release Mesen 캡처 | `13181f7e0099b1b4523e3ece5babd7111d739128ea54c77c09678f87b0d07251` |
 | ps1-bushido-blade-kr-patch | runtime | poc_title 2026-07-29 캡처 | `ceea68ac9c1ba135d8910fbcbd3c8736985429363b1fcd23e8dd44dd96fa6907` |
 | nes-city-connection-kr-patch | runtime | logo22 Mesen 캡처 | `61a381823a2fc99af8019f8e1af1aa3aa78522e2dae743cb4ea326b08a3b1705` |
-| arcade-dark-seal-kr-patch | runtime | dumps_kr_attract 게임 캡처 | `a5314bf097e968b5c55c9cf731eb7135562a7b0d6762d3828ecc3d25aa0dd98b` |
-| arcade-dark-seal-2-kr-patch | runtime | dumps_Korean_v101_check 게임 캡처 | `05f9fd3d8baebfcf287fc4bb98f17df1def0162b21dfebbdc51fcedae31b42f3` |
+| arcade-dark-seal-kr-patch | runtime | 사용자가 촬영한 FBNeo 타이틀 화면. 설치 패치 7개가 공개 v1.0과 해시 일치하며 타이틀 로고는 원문입니다. | `a6b34b7edb664b528c2dd71bae63dd4606718a47b2f2d80e820759ab7bf54579` |
+| arcade-dark-seal-2-kr-patch | runtime | 사용자가 촬영한 FBNeo 타이틀 화면. 현재 설치 패치 9개가 공개 v1.0.3과 해시 일치하며 타이틀 로고는 원문입니다. | `fd01d1f95b537d4c127c6bdeb3f0a4f338cf0fd50420e02eadaf44cd158e5184` |
 | psp-death-jr-kr-patch | runtime | 기존 PPSSPP 타이틀 캡처. 로고는 원문이며 시작 안내는 한글입니다. 촬영 당시 버전과 최종 배포본의 일치 여부는 확인하지 않았습니다. | `fd7facda823630344c209d1d41cb99fae401f10d101e2b7a051a03d20e2671b6` |
 | gba-metroid-zero-mission-kr-patch | runtime | title_ko Mesen 캡처 | `ea7dd80cd349bbde1afb55b7ee772a608247ac4100aa77356b927a525e524a2a` |
 | gba-metroid-fusion-kr-patch | runtime | v24_korean_title_vramsafe Mesen 캡처 | `d5a09b21e12504e2acb392167250bc0c9f0ce2a916792c8f6ad3c3a13d18f404` |
@@ -20,7 +20,9 @@
 | pce-tenshi-no-uta-2-kr-patch | runtime | release_Tenshi2_KR_v1.0_20261014 pce_fast 캡처 | `cf345f38aca3f587da400ab989dca5c016593102f63be85f5007a7dafecb08eb` |
 | nes-tiny-toon-adventures-kr-patch | runtime | kr_smoke_001 Mesen 캡처 | `00a6db5868f7fb989b80ebaa40f1820694bb38790f1f9e6acac514013f81f69e` |
 | nes-tiny-toon-adventures-2-kr-patch | runtime | title_kr_ai_003_attract Mesen 캡처 | `772d8ff10d5612fd3016f580111fd9ba8c8c1c2ae77381563567f31f52f4ef95` |
+| switch-tenshi-no-uta-kr-patch | runtime | 사용자가 Citron에서 촬영한 Switch판 게임 소개·한글 메뉴 화면입니다. 현재 설치 패치와 공개 배포본의 일부 컨테이너가 달라 최종 배포본과 동일한 화면으로 확정하지 않았습니다. | `63c1ec6f3fb29d76f30259dc76f6ffd553ba90a0285c31c361d79561934bbaa3` |
+| switch-tenshi-no-uta-2-kr-patch | runtime | 사용자가 Citron에서 촬영한 Switch판 게임 소개·한글 메뉴 화면입니다. 설치 패치와 공개 배포본의 파일별 일치는 대조하지 않았습니다. | `d302b4da59a260a8f8cb913ae13a329455d80c717261650bac0074062602d9e5` |
 
-Switch 천사의 시 1·2와 발할라 나이츠는 확인된 캡처가 없어 준비 중입니다. 데스 주니어는 기존 PPSSPP 타이틀 캡처로 교체했습니다. 2026-10-16 사용자 제공 어나더 코드·쉬버스·라쿠가키 쇼타임·프리니 화면을 반영했습니다.
+공개 18개 게임 모두 전체 화면 이미지가 있습니다. 다크 실 1·2는 원문 로고의 타이틀, Switch 천사의 시 1·2는 이식판 게임 소개·한글 메뉴 화면입니다. Switch 본편 타이틀은 아직 촬영하지 않았습니다. 업로드 대기인 발할라 나이츠는 캡처 준비 중입니다.
 
-이전 배포 이미지 중 무손실 WebP는 디코딩한 RGBA 픽셀이 출처 PNG와 같습니다. 새 사용자 제공 PNG는 형식 변환 없이 보존했습니다. 자세한 경로·해시는 `data/screenshots.json`을 참고하세요.
+이전 무손실 WebP는 디코딩 RGBA 픽셀이 출처 PNG와 같으며 새 촬영 PNG는 형식 변환 없이 보존했습니다. 상세 출처는 data/screenshots.json입니다.
