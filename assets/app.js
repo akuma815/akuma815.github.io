@@ -76,6 +76,7 @@
     $("dialog-version").innerHTML=`<span>${g.available?"배포 중":"공개 등록 준비"}</span> · ${esc(g.version)}`;
     $("dialog-notes").innerHTML=g.notes.map(n=>`<li>${esc(n)}</li>`).join("");
     $("dialog-actions").innerHTML=g.available?safeLink(g.release,"최종 패치 받기 ↗","primary")+safeLink(g.repository,"적용 방법 · 소스 보기 ↗"):'<p class="pending-label">릴리즈 등록 후에 여기서 패치를 받을 수 있어. 조금만 기다려 줘!</p>';
+    window.PATCH_COMMUNITY?.openGame(g);
     $("insert-pack").innerHTML=pack(g);
     $("insert-stage").hidden=false;
     $("skip-insert").hidden=false;
@@ -91,6 +92,7 @@
   $("skip-insert").addEventListener("click",finishInsertion);
   $("close-dialog").addEventListener("click",()=>$("details").close());
   $("details").addEventListener("close",()=>{
+    window.PATCH_COMMUNITY?.close();
     window.clearTimeout(insertionTimer);insertionTimer=null;
     $("insert-pack").innerHTML="";
     $("insert-status").textContent="";

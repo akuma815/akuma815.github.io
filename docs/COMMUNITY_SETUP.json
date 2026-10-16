@@ -1,0 +1,134 @@
+{
+  "date": "2026-10-16",
+  "labels": [
+    "site-guestbook",
+    "site-bug"
+  ],
+  "templates": {
+    "site-bug-report.md": "969e97884fe467b5235d9d0bfd1897371af6d1b2fc118911a1a0b6d8e136acf7",
+    "site-guestbook.md": "ea983229526b32a15a972489fac8a832cabf6dc7cbf22d7d0b2eda12066726d5"
+  },
+  "repositories": [
+    {
+      "game": "nds-another-code-kr-patch",
+      "setup_commit": "a1e243893894fddbee23224510a140ccfe50e063",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "nes-battletoads-kr-patch",
+      "setup_commit": "3c965da780baadf1f1e64f930a72fde787edb547",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "ps1-bushido-blade-kr-patch",
+      "setup_commit": "22227667b1a07ccb620c61a6e6c0463ed2a3c2ef",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "nes-city-connection-kr-patch",
+      "setup_commit": "52c2a3ddcf15a3a2029d15257c0f509b096b5401",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "arcade-dark-seal-kr-patch",
+      "setup_commit": "2ca3dd27212d1097ac2f04915b96c89231cc52db",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "arcade-dark-seal-2-kr-patch",
+      "setup_commit": "510ffff21eb3327722cd363f1ca12e128e1df199",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "psp-death-jr-kr-patch",
+      "setup_commit": "583b6704b15587a3fd809f006b437ec70d01cd42",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "gba-metroid-zero-mission-kr-patch",
+      "setup_commit": "27bd2a9c37c8d406e9be156487be54cec175a00c",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "gba-metroid-fusion-kr-patch",
+      "setup_commit": "5718b279efb27c42ec5e3847313f9e05f91e22ab",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "nes-ninja-jajamaru-kun-kr-patch",
+      "setup_commit": "f942a4cbbeff74008214198f6f6e61aa99cd4c5e",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "nes-ninja-kun-majou-no-bouken-kr-patch",
+      "setup_commit": "53aca1d40f185a8727f865286f91b8a8ecc94016",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "psp-prinny-kr-patch",
+      "setup_commit": "54437b7ba2d3ad56bcff1f8f069019ce2a9ab59b",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "ps1-rakugaki-showtime-kr-patch",
+      "setup_commit": "63f7ebe9a7e15264daec3180600bca9ad5bb51d7",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "pc-shivers-kr-patch",
+      "setup_commit": "1935e0ca037e02da6334947a4bcc9978fb0c6f29",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "switch-tenshi-no-uta-kr-patch",
+      "setup_commit": "b04a945e832fa73365710a4bece03695483490d2",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "switch-tenshi-no-uta-2-kr-patch",
+      "setup_commit": "f4545561d6ca4f1e9972356669ebce8d9c82874d",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "pce-tenshi-no-uta-2-kr-patch",
+      "setup_commit": "4a6ff307408a3c95dd89d7355954d522c6716d82",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "nes-tiny-toon-adventures-kr-patch",
+      "setup_commit": "86759e19c71f6b154be9914dfb260eb033c02380",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "nes-tiny-toon-adventures-2-kr-patch",
+      "setup_commit": "20ea8abd58b924a27cabd3dfaaccde9696bb94dd",
+      "issues_enabled": true,
+      "verified": true
+    },
+    {
+      "game": "psp-valhalla-knights-kr-patch",
+      "setup_commit": "f65e7dfea959c41e2b6d6a4b5d5079c56dd6fbe5",
+      "issues_enabled": true,
+      "verified": true
+    }
+  ],
+  "actual_user_posts_created_by_setup": false
+}

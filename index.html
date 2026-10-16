@@ -15,7 +15,9 @@
   <link rel="preload" href="assets/fonts/gaegu/Gaegu-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/handwriting.css">
   <link rel="stylesheet" href="assets/cartridges.css">
+  <link rel="stylesheet" href="assets/community.css">
   <script src="data/catalog.js" defer></script>
+  <script src="assets/community.js" defer></script>
   <script src="assets/app.js" defer></script>
 </head>
 <body>
@@ -64,9 +66,55 @@
     </div>
     <button type="button" id="skip-insert" class="skip-insert" hidden>기다리지 않고 소개 보기 →</button>
     <div id="game-introduction">
+      <div class="community-tabs" role="tablist" aria-label="이 게임의 이야기방">
+        <button type="button" id="tab-intro" role="tab" aria-selected="true" aria-controls="panel-intro" data-community-tab="intro">게임 소개</button>
+        <button type="button" id="tab-guestbook" role="tab" aria-selected="false" aria-controls="panel-guestbook" tabindex="-1" data-community-tab="guestbook">담벼락 낙서</button>
+        <button type="button" id="tab-bugs" role="tab" aria-selected="false" aria-controls="panel-bugs" tabindex="-1" data-community-tab="bugs">버그 칠판</button>
+      </div>
+      <section id="panel-intro" role="tabpanel" aria-labelledby="tab-intro">
       <figure id="dialog-media" class="dialog-media" hidden></figure>
       <p class="dialog-about" id="dialog-about"></p><div class="dialog-version" id="dialog-version"></div>
       <h3>시작 전에 이것도 읽어 줘!</h3><ul id="dialog-notes"></ul><div class="dialog-actions" id="dialog-actions"></div>
+      </section>
+      <section id="panel-guestbook" class="community-panel" role="tabpanel" aria-labelledby="tab-guestbook" hidden>
+        <div class="graffiti-wall">
+          <header class="wall-heading"><span class="wall-scribble" aria-hidden="true">✦ 1P + 2P ✦</span><p class="board-game" data-community-game></p><h3>여기 다녀갔어!</h3><p>이 게임이랑 어떤 추억이 있어?<br>우리 담벼락에 한마디 남기고 가.</p></header>
+          <div class="board-tools"><button type="button" data-board-write="guestbook">나도 낙서 남기기 ↓</button><button type="button" data-board-refresh="guestbook">낙서 새로 보기 ↻</button><a id="guestbook-all" target="_blank" rel="noopener noreferrer">GitHub에서 모두 보기 ↗</a></div>
+          <p id="guestbook-status" class="board-status" role="status" aria-live="polite"></p>
+          <div id="guestbook-posts" class="graffiti-posts"></div>
+          <button type="button" id="guestbook-more" class="board-more" data-board-more="guestbook" hidden>다른 낙서도 읽어 볼까? ↓</button>
+          <span class="wall-doodle" aria-hidden="true">우리 우정 영원히! ♡</span>
+        </div>
+        <form id="guestbook-form" class="board-compose guestbook-compose">
+          <h3>나도 낙서 남길래!</h3>
+          <label for="guestbook-title">한 줄 제목 <span>(비워 둬도 돼)</span></label><input id="guestbook-title" maxlength="60" placeholder="이 게임, 진짜 오랜만이야!">
+          <label for="guestbook-message">담벼락에 남길 말</label><textarea id="guestbook-message" required maxlength="1000" rows="4" placeholder="같이 하던 친구 이야기, 응원 한마디도 좋아."></textarea>
+          <p class="board-publishing-note">읽는 건 누구나 할 수 있어. 글을 남길 땐 GitHub 로그인이 필요해. 아래 버튼을 누른 뒤 GitHub에서 최종 등록해 줘. 등록한 글은 누구나 볼 수 있어.</p>
+          <div class="compose-actions"><button type="submit">GitHub에서 낙서 등록하기 ↗</button><button type="button" data-board-copy="guestbook">내용 복사</button></div>
+          <p id="guestbook-feedback" class="compose-feedback" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+      <section id="panel-bugs" class="community-panel" role="tabpanel" aria-labelledby="tab-bugs" hidden>
+        <div class="chalkboard">
+          <header class="chalk-heading"><p class="board-game" data-community-game></p><span class="chalk-day" aria-hidden="true">오늘의 칠판</span><h3>오늘 떠든 녀석들</h3><p>게임에서 말썽부린 버그들,<br>여기 적어 두고 같이 살펴보자!</p></header>
+          <div class="board-tools"><button type="button" data-board-write="bugs">버그 적으러 가기 ↓</button><button type="button" data-board-refresh="bugs">칠판 새로 보기 ↻</button><a id="bugs-all" target="_blank" rel="noopener noreferrer">GitHub에서 모두 보기 ↗</a></div>
+          <p id="bugs-status" class="board-status" role="status" aria-live="polite"></p>
+          <div id="bugs-posts" class="chalk-posts"></div>
+          <button type="button" id="bugs-more" class="board-more" data-board-more="bugs" hidden>칠판 뒷장도 보기 ↓</button>
+          <div class="chalk-tray" aria-hidden="true"><i></i><i></i><i></i><span class="chalk-eraser"></span></div>
+        </div>
+        <form id="bugs-form" class="board-compose bug-compose">
+          <h3>말썽부린 버그를 적어 줘!</h3>
+          <label for="bugs-title">어떤 버그야?</label><input id="bugs-title" required maxlength="80" placeholder="예: 메뉴에서 글자가 겹쳐 보여">
+          <div class="compose-row"><div><label for="bugs-version">패치 버전</label><input id="bugs-version" required maxlength="60"></div><div><label for="bugs-environment">어디서 실행했어?</label><input id="bugs-environment" required maxlength="140" placeholder="기기 / 에뮬레이터 이름과 버전"></div></div>
+          <label for="bugs-message">어떤 일이 있었어?</label><textarea id="bugs-message" required maxlength="1200" rows="4" placeholder="문제가 생긴 장면이랑 증상을 알려 줘."></textarea>
+          <label for="bugs-steps">어떻게 하면 다시 생겨? <span>(알고 있다면)</span></label><textarea id="bugs-steps" maxlength="1000" rows="3" placeholder="1. 게임을 켜고…&#10;2. 이 메뉴를 누르면…"></textarea>
+          <label for="bugs-expected">원래는 어떻게 되어야 해? <span>(알고 있다면)</span></label><textarea id="bugs-expected" maxlength="500" rows="2"></textarea>
+          <p class="board-publishing-note">GitHub에 로그인한 뒤 최종 등록해 줘. 스크린샷이나 긴 로그도 거기서 붙일 수 있어. 공개되는 글이니 개인정보나 원본 게임 파일은 올리지 말아 줘.</p>
+          <div class="compose-actions"><button type="submit">GitHub에서 버그 신고하기 ↗</button><button type="button" data-board-copy="bugs">내용 복사</button></div>
+          <p id="bugs-feedback" class="compose-feedback" role="status" aria-live="polite"></p>
+        </form>
+      </section>
     </div>
   </dialog>
 </body>

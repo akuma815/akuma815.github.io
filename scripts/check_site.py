@@ -40,6 +40,7 @@ def main():
                 with Image.open(f) as im:assert hashlib.sha256(im.convert('RGBA').tobytes()).hexdigest()==image['pixelSHA256']
             assert image['kind'] in {'runtime','graphics','video'} and image['sourceNote']
     ctx=quickjs.Context()
+    ctx.eval('new Function('+json.dumps((ROOT/'assets/community.js').read_text(encoding='utf-8'))+')')
     ctx.eval('''
     var window=globalThis;
     var elements={}; var platformButtons=[];

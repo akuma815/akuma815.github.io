@@ -1,0 +1,92 @@
+/* A schoolyard wall for memories, a classroom board for mischievous bugs. */
+#details[data-board="guestbook"], #details[data-board="bugs"] { max-width: 920px; }
+.community-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 20px 0; padding: 5px; background: #d9c5a3; border: 1px solid #b69a71; border-radius: 9px; }
+.community-tabs button { min-height: 48px; padding: 8px 5px; border: 0; border-radius: 5px; background: transparent; color: #755637; font-size: 23px; line-height: 1.2; }
+.community-tabs button[aria-selected="true"] { color: #3e3022; background: #f7ecd6; box-shadow: 0 2px 3px #65482933; font-weight: 700; }
+.community-tabs button:disabled { color: #99876e; }
+.community-panel { margin-top: 14px; min-width: 0; }
+.graffiti-wall { position: relative; padding: 30px 25px 42px; border: 1px solid #c0ab8a; border-radius: 3px 3px 7px 7px; color: #6a4b3a; background-color: #e3d4ba; background-image: linear-gradient(0deg, #baa98b55 1px, transparent 1px), linear-gradient(90deg, #baa98b44 1px, transparent 1px), repeating-linear-gradient(140deg, #fff1 0 1px, transparent 1px 4px); background-size: 100% 53px, 126px 106px, 5px 5px; box-shadow: inset 0 0 35px #87745c22, 0 4px 0 #bba88a; overflow: hidden; }
+#details .wall-heading { position: relative; padding: 2px 18px 15px; text-align: center; }
+#details .wall-heading h3 { font-size: 40px; line-height: 1.15; margin: 12px 0 8px; color: #7e453b; transform: rotate(-3deg); text-shadow: 1px 1px #f6e2bf; }
+.wall-heading > p:last-child { margin: 10px 0; font-size: 22px; line-height: 1.45; color: #765840; }
+.wall-scribble { display: block; font-size: 17px; letter-spacing: 3px; color: #9b6f48; }
+.board-game { font-size: 18px; line-height: 1.3; margin: 8px 0; overflow-wrap: anywhere; }
+.wall-doodle { display: block; text-align: right; margin: 25px 5px -8px; font-size: 21px; transform: rotate(-5deg); color: #98745d; }
+.board-tools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 3px 14px; border-top: 1px dashed #92715077; border-bottom: 1px dashed #92715077; padding: 6px 0; }
+.board-tools button, .board-tools a { min-height: 44px; padding: 8px 0; border: 0; background: none; font-size: 18px; line-height: 1.3; color: inherit; }
+.board-tools a { display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: 4px; }
+.board-tools button:disabled { opacity: .6; }
+.board-status { font-size: 19px; line-height: 1.5; margin: 22px 3px; }
+.graffiti-posts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 24px; padding: 8px 2px; }
+.graffiti-note { --ink-color: #8a4e3c; min-width: 0; position: relative; padding: 15px 12px 18px; color: var(--ink-color); border: 2px solid currentColor; border-radius: 19px 4px 22px 8px; background: #fff4de22; transform: rotate(-1.6deg); }
+.graffiti-note:nth-child(2n) { transform: rotate(1.5deg); margin-top: 8px; }
+.graffiti-note::before { content: "✦"; position: absolute; top: -15px; right: 12px; font-size: 25px; background: #e3d4ba; padding: 0 4px; }
+.graffiti-note.ink-1 { --ink-color: #3d586f; }.graffiti-note.ink-2 { --ink-color: #425a34; }.graffiti-note.ink-3 { --ink-color: #70465f; }
+.graffiti-note .board-author { opacity: 1; }
+#details .graffiti-note h4 { color: var(--ink-color); font-size: 25px; line-height: 1.25; margin: 0 0 14px; overflow-wrap: anywhere; }
+.board-message { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 22px; line-height: 1.5; margin: 12px 0 18px; }
+.board-author { font-size: 15px; line-height: 1.5; margin: 15px 0 3px; overflow-wrap: anywhere; opacity: .8; }
+.board-replies { font-size: 16px; line-height: 1.4; text-decoration: underline; text-underline-offset: 4px; display: inline-flex; align-items: center; min-height: 44px; }
+.board-overflow { font-size: 17px; }
+.board-more { display: block; width: 100%; min-height: 44px; margin: 24px 0 0; padding: 10px 5px; border: 1px dashed currentColor; border-radius: 4px; background: transparent; color: inherit; font-size: 20px; }
+.chalkboard { position: relative; padding: 27px 26px 48px; border: 10px solid #8c6947; border-bottom-width: 18px; border-radius: 6px; color: #f0ead1; background: radial-gradient(ellipse at 22% 20%, #a0ab8d19, transparent 60%), repeating-linear-gradient(175deg, #dce7ce04 0 1px, transparent 1px 7px), #2c4b3e; box-shadow: inset 0 0 30px #0c241b88, 0 4px 0 #6b4d33; }
+#details .chalk-heading { position: relative; padding-bottom: 18px; }
+#details .chalk-heading h3 { font-size: 39px; line-height: 1.3; color: #f5e9b4; font-weight: 400; display: inline-block; border-bottom: 3px solid #efe8c388; padding: 7px 4px 6px; margin: 10px 0; transform: rotate(-1deg); text-shadow: 0 0 1px #fffb; }
+.chalk-heading .board-game { color: #d0dbb7; font-size: 18px; margin-right: 85px; }
+.chalk-heading > p:last-child { font-size: 22px; line-height: 1.5; margin: 8px 0; color: #d8dfc8; }
+.chalk-day { position: absolute; right: 0; top: 0; writing-mode: vertical-rl; font-size: 20px; letter-spacing: 3px; color: #e9d3c3; transform: rotate(4deg); }
+.chalkboard .board-tools { border-color: #d4dfbd66; color: #dde5cf; }
+.chalkboard .board-status { color: #d1dfc0; }
+.chalk-note { position: relative; padding: 20px 0 17px 30px; border-bottom: 1px dashed #d0d9c455; min-width: 0; }
+.chalk-note::before { content: "☆"; position: absolute; left: 0; top: 21px; color: #e4d9a2; font-size: 24px; line-height: 1; }
+#details .chalk-note h4 { color: #f2ead6; font-size: 27px; line-height: 1.3; margin: 0 0 7px; font-weight: 400; text-shadow: 0 0 1px #e9f0dd77; overflow-wrap: anywhere; }
+.chalk-state { color: #edd4ba; font-size: 16px; border: 1px solid #d8d1b777; border-radius: 50%; display: inline-block; padding: 1px 11px; transform: rotate(-4deg); }
+.chalk-note details { color: #dee4ce; margin: 13px 0; }
+.chalk-note summary { font-size: 20px; cursor: pointer; min-height: 44px; padding: 8px 0; }
+.chalk-note .board-message { font-size: 20px; color: #e0e8d4; padding-left: 4px; }
+.chalk-note .board-author { color: #c1cfb6; }
+.chalk-note .board-replies { color: #e8dbb5; }
+.chalk-tray { position: absolute; height: 16px; bottom: -10px; left: 8px; right: 8px; display: flex; gap: 10px; align-items: end; pointer-events: none; }
+.chalk-tray > i { display: block; width: 34px; height: 7px; border-radius: 3px; background: #e4e4d7; transform: rotate(-8deg); box-shadow: 0 2px 2px #0005; }
+.chalk-tray > i:nth-child(2) { background: #dec6b5; width: 23px; transform: rotate(4deg); }.chalk-tray > i:nth-child(3) { background: #d2cf9c; width: 28px; }
+.chalk-eraser { display: block; width: 62px; height: 22px; margin-left: auto; border-bottom: 8px solid #343c2e; border-radius: 3px; background: #b7a67d; box-shadow: 0 3px 3px #0005; transform: rotate(-3deg); }
+.board-compose { scroll-margin-top: 72px; padding: 24px 22px 20px; margin-top: 28px; border: 1px solid #c0a681; border-radius: 6px; background: repeating-linear-gradient(0deg, transparent 0 31px, #bda88922 31px 32px), #f5e9d2; box-shadow: 0 3px 0 #c7b08b; }
+#details .board-compose h3 { font-size: 29px; line-height: 1.3; margin: 0 0 22px; color: #765338; }
+.board-compose label { display: block; font-size: 22px; line-height: 1.35; margin: 17px 0 7px; color: #624a35; }
+.board-compose label > span { font-size: 17px; color: #8b7456; }
+.board-compose input, .board-compose textarea { width: 100%; min-width: 0; font: 21px/1.5 var(--font); color: #4d3b2b; background: #fffbefaa; border: 1px solid #baa17e; border-radius: 4px; padding: 9px 11px; }
+.board-compose textarea { resize: vertical; }
+.board-compose input::placeholder, .board-compose textarea::placeholder { color: #9b886f; opacity: 1; }
+.compose-row { display: grid; grid-template-columns: 1fr 1.5fr; gap: 14px; }
+.compose-row > div { min-width: 0; }
+.board-publishing-note { font-size: 18px; line-height: 1.6; color: #80674d; margin: 20px 0; }
+.compose-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.compose-actions button { font-size: 21px; min-height: 48px; padding: 9px 16px; border: 1px solid #9c7750; border-radius: 5px; background: #9b643f; color: #fff0d3; }
+.compose-actions button + button { background: transparent; color: #795e42; }
+.bug-compose .compose-actions button:first-child { background: #466553; border-color: #466553; }
+.compose-feedback { font-size: 19px; line-height: 1.5; color: #795b38; margin: 17px 0 0; overflow-wrap: anywhere; }
+.compose-feedback:empty { display: none; }.compose-feedback a { text-decoration: underline; text-underline-offset: 4px; }
+@media (max-width: 600px) {
+  .community-tabs { gap: 3px; margin: 17px 0; padding: 4px; }
+  .community-tabs button { font-size: 19px; min-height: 46px; padding: 8px 3px; }
+  .graffiti-wall { padding: 23px 14px 35px; }
+  #details .wall-heading { padding-left: 0; padding-right: 0; }
+  #details .wall-heading h3 { font-size: 34px; }
+  .wall-heading > p:last-child { font-size: 21px; }
+  .graffiti-posts { grid-template-columns: minmax(0, 1fr); padding: 6px 3px; gap: 22px; }
+  .board-tools { gap: 2px 10px; }
+  .board-tools button, .board-tools a { font-size: 17px; }
+  .chalkboard { padding: 23px 14px 40px; border-width: 7px; border-bottom-width: 15px; }
+  #details .chalk-heading h3 { font-size: 31px; }
+  .chalk-heading .board-game { margin-right: 28px; font-size: 17px; }
+  .chalk-heading > p:last-child { font-size: 20px; }
+  .chalk-day { font-size: 17px; right: -4px; }
+  .chalk-note { padding-left: 23px; }
+  #details .chalk-note h4 { font-size: 25px; }
+  .chalk-note::before { font-size: 20px; }
+  .board-compose { padding: 23px 15px 18px; }
+  #details .board-compose h3 { font-size: 27px; }
+  .compose-row { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .board-compose label { font-size: 21px; }
+  .compose-actions { gap: 10px; }.compose-actions button { font-size: 20px; padding: 9px 12px; }
+}
