@@ -24,7 +24,9 @@
     heroImage.alt = `${game.title} — ${game.screenshot.caption}`;
   }
   const imageTag = (g) => `<img src="${esc(g.screenshot.src)}" width="${Number(g.screenshot.width)}" height="${Number(g.screenshot.height)}" loading="lazy" decoding="async" alt="${esc(g.title)} — ${esc(g.screenshot.caption)}">`;
-  const photo = (g) => hasImage(g) ? `<figure class="card-photo"><button type="button" class="screenshot-open" data-details="${esc(g.id)}" aria-label="${esc(g.title)} 이미지와 상세 정보 보기">${imageTag(g)}</button></figure>` : `<figure class="card-photo"><div class="missing-photo" role="img" aria-label="${esc(g.title)} 화면 캡처 준비 중"><strong>여기 보여 줄 게임 화면을 찾고 있어!</strong><small>사진 찍으면 보여 줄게</small></div></figure>`;
+  const mediaType = (g) => ({NES:"famicom",GBA:"advance",NDS:"ds",SWITCH:"switch",PS1:"disc",PSP:"umd",PCE:"disc",PC:"box",ARCADE:"arcade"}[g.platform] || "famicom");
+  const pack = (g) => `<span class="pack-shell media-${mediaType(g)}"><span class="pack-grip" aria-hidden="true"></span><span class="pack-label"><span class="pack-system">${esc(platformNames[g.platform] || g.platform)} <span>한글 패치</span></span><span class="pack-art">${hasImage(g)?imageTag(g):'<span class="pack-no-image">사진은 조금만 기다려 줘!</span>'}</span><span class="pack-label-title">${esc(g.title)}</span><span class="pack-label-bottom" aria-hidden="true">AKUMA815 <span>우리들의 작은 게임방</span></span></span><span class="pack-screw screw-left" aria-hidden="true"></span><span class="pack-screw screw-right" aria-hidden="true"></span><span class="pack-contacts" aria-hidden="true"></span></span>`;
+  const photo = (g) => `<button type="button" class="pack-pick" data-details="${esc(g.id)}" aria-label="${esc(g.title)} 팩을 게임기에 넣고 소개 보기" aria-haspopup="dialog">${pack(g)}<span class="pack-prompt" aria-hidden="true">이 팩으로 할래? <span>꽂아 보기 ↗</span></span></button>`;
   const availableCount = games.filter(g=>g.available).length;
   $("total-count").textContent = String(games.length).padStart(2,"0");
   $("catalog-summary").textContent = `지금 받을 수 있는 패치 ${availableCount}개 · 등록 준비 ${games.length-availableCount}개`;
@@ -38,7 +40,7 @@
     $("result-count").textContent = `패치 ${filtered.length}개를 찾았어!${state.platform!=="ALL"?" · "+platformNames[state.platform]:""}`;
     $("reset").hidden = !(state.query||state.platform!=="ALL"||state.available||state.sort!=="available");
     $("empty").hidden=filtered.length>0;
-    $("games").innerHTML=filtered.map(g=>`<article class="game-card" data-game="${esc(g.id)}">${photo(g)}<div class="card-body"><div class="card-top"><span class="platform"><span class="platform-mark" aria-hidden="true"></span>${esc(g.platform)}</span><span class="availability${g.available?"":" is-pending"}"><span class="status-dot${g.available?"":" pending"}"></span>${g.available?"배포 중":"등록 준비"}</span></div><h3>${esc(g.title)}</h3><p class="english">${esc(g.english)}</p><p class="card-about">${esc(g.description)}</p><div class="card-footer"><span class="version">${esc(g.version)}</span><div class="card-links"><button class="detail-button" type="button" data-details="${esc(g.id)}" aria-label="${esc(g.title)} 상세 정보">자세히</button>${g.available?safeLink(g.repository,"소스 ↗"):""}${g.available?safeLink(g.release,"패치 받기 ↗","download"):'<span class="pending-label">곧 올려 둘게</span>'}</div></div></div></article>`).join("");
+    $("games").innerHTML=filtered.map(g=>`<article class="game-card" data-game="${esc(g.id)}">${photo(g)}<div class="card-body"><div class="card-top"><span class="platform"><span class="platform-mark" aria-hidden="true"></span>${esc(g.platform)}</span><span class="availability${g.available?"":" is-pending"}"><span class="status-dot${g.available?"":" pending"}"></span>${g.available?"배포 중":"등록 준비"}</span></div><h3>${esc(g.title)}</h3><p class="english">${esc(g.english)}</p><p class="card-about">${esc(g.description)}</p><div class="card-footer"><span class="version">${esc(g.version)}</span><div class="card-links"><button class="detail-button" type="button" data-details="${esc(g.id)}" aria-haspopup="dialog" aria-label="${esc(g.title)} 소개 보기">소개 보기</button>${g.available?safeLink(g.repository,"소스 ↗"):""}${g.available?safeLink(g.release,"패치 받기 ↗","download"):'<span class="pending-label">곧 올려 둘게</span>'}</div></div></div></article>`).join("");
     document.querySelectorAll("[data-platform]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.platform===state.platform)));
   }
   function reset() {state.platform="ALL";state.query="";state.available=false;state.sort="available";$("search").value="";$("available-only").checked=false;$("sort").value="available";render();}
@@ -48,19 +50,52 @@
   $("filters").addEventListener("click",e=>{const b=e.target.closest("[data-platform]");if(b){state.platform=b.dataset.platform;render();}});
   $("reset").addEventListener("click",reset);$("empty-reset").addEventListener("click",reset);
   let previousFocus=null;
+  let insertionTimer=null;
+  let selectedTitle="";
+  function finishInsertion() {
+    window.clearTimeout(insertionTimer);
+    insertionTimer=null;
+    if (!$("details").open) return;
+    const skipHadFocus=document.activeElement===$("skip-insert");
+    $("insert-stage").hidden=true;
+    $("skip-insert").hidden=true;
+    $("game-introduction").hidden=false;
+    $("details").dataset.loading="false";
+    $("insert-status").textContent=`${selectedTitle}, 준비됐어! 소개를 같이 읽어 보자.`;
+    // A skipped animation must not leave focus on a now-hidden button.
+    if (skipHadFocus) $("close-dialog").focus();
+  }
   $("games").addEventListener("click",e=>{
     const b=e.target.closest("[data-details]");if(!b)return;
     const g=games.find(g=>g.id===b.dataset.details);if(!g)return;
-    previousFocus=b;$("dialog-title").textContent=g.title;$("dialog-platform").textContent=platformNames[g.platform];$("dialog-about").textContent=g.description;
+    if ($("details").open) return;
+    window.clearTimeout(insertionTimer);
+    previousFocus=b;selectedTitle=g.title;$("dialog-title").textContent=g.title;$("dialog-platform").textContent=platformNames[g.platform];$("dialog-about").textContent=g.description;
     $("dialog-media").hidden=!hasImage(g);
     $("dialog-media").innerHTML=hasImage(g)?imageTag(g):"";
     $("dialog-version").innerHTML=`<span>${g.available?"배포 중":"공개 등록 준비"}</span> · ${esc(g.version)}`;
     $("dialog-notes").innerHTML=g.notes.map(n=>`<li>${esc(n)}</li>`).join("");
     $("dialog-actions").innerHTML=g.available?safeLink(g.release,"최종 패치 받기 ↗","primary")+safeLink(g.repository,"적용 방법 · 소스 보기 ↗"):'<p class="pending-label">릴리즈 등록 후에 여기서 패치를 받을 수 있어. 조금만 기다려 줘!</p>';
+    $("insert-pack").innerHTML=pack(g);
+    $("insert-stage").hidden=false;
+    $("skip-insert").hidden=false;
+    $("game-introduction").hidden=true;
+    $("insert-status").textContent=`${g.title} 팩을 게임기에 넣고 있어.`;
+    $("details").dataset.loading="true";
     $("details").showModal();
+    $("details").scrollTop=0;
+    $("close-dialog").focus();
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) finishInsertion();
+    else insertionTimer=window.setTimeout(finishInsertion,1100);
   });
+  $("skip-insert").addEventListener("click",finishInsertion);
   $("close-dialog").addEventListener("click",()=>$("details").close());
-  $("details").addEventListener("close",()=>previousFocus?.focus());
+  $("details").addEventListener("close",()=>{
+    window.clearTimeout(insertionTimer);insertionTimer=null;
+    $("insert-pack").innerHTML="";
+    $("insert-status").textContent="";
+    previousFocus?.focus();
+  });
   $("details").addEventListener("click",e=>{if(e.target===$("details")){const r=e.target.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)e.target.close();}});
   render();
 })();

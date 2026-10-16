@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="assets/cozy.css">
   <link rel="preload" href="assets/fonts/gaegu/Gaegu-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/handwriting.css">
+  <link rel="stylesheet" href="assets/cartridges.css">
   <script src="data/catalog.js" defer></script>
   <script src="assets/app.js" defer></script>
 </head>
@@ -35,6 +36,7 @@
         <div class="tools"><label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span class="sr-only">게임명 또는 플랫폼 검색</span><input id="search" type="search" placeholder="어떤 게임을 찾고 있어?" autocomplete="off"></label><label class="available-toggle"><input id="available-only" type="checkbox"><span>지금 받을 수 있는 패치만</span></label><label class="sort"><span class="sr-only">정렬 방식</span><select id="sort"><option value="available">배포 중인 패치 먼저</option><option value="title">이름순</option><option value="platform">플랫폼순</option></select></label></div>
         <div class="filters" id="filters" role="group" aria-label="플랫폼 필터"></div>
         <div class="result-line"><p id="result-count" role="status" aria-live="polite"></p><button id="reset" class="text-button" type="button" hidden>처음처럼 보기 ↺</button></div>
+        <p class="shelf-invitation"><span aria-hidden="true">✦</span> 마음에 드는 팩을 골라 봐. 게임기에 쏙 꽂아 줄게!</p>
         <div class="game-grid" id="games"></div>
         <div class="empty-state" id="empty" hidden><span aria-hidden="true">⌕</span><h3>어라, 그 게임은 안 보이네!</h3><p>다른 이름으로 찾아볼까? 게임기도 다시 골라 봐.</p><button class="secondary-button" id="empty-reset" type="button">모든 패치 다시 보기</button></div>
         <p class="catalog-note"><span class="status-dot pending"></span> ‘등록 준비’는 저장소나 배포 파일을 아직 올리는 중이라는 뜻이야. 번역이 얼마나 됐는지, 검수가 끝났는지를 알려 주는 표시는 아니야.</p>
@@ -46,6 +48,26 @@
     <section class="notice wrap"><span class="notice-mark" aria-hidden="true">i</span><p>여기는 팬이 만든 비공식 한글 패치를 모아 둔 작은 게임방이야. 원본 ROM·ISO·BIOS나 패치가 끝난 게임 파일은 여기서 나눠 주지 않아. 게임과 상표의 권리는 각각의 권리자에게 있어.</p></section>
   </main>
   <footer class="footer wrap"><a class="footer-brand" href="./">AKUMA815 <span>한글 패치 아카이브</span></a><p id="updated-at"></p><a href="https://github.com/akuma815" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
-  <dialog id="details" aria-labelledby="dialog-title"><div class="dialog-head"><p class="eyebrow" id="dialog-platform"></p><button id="close-dialog" aria-label="상세 정보 닫기" type="button">✕</button></div><h2 id="dialog-title"></h2><figure id="dialog-media" class="dialog-media" hidden></figure><p class="dialog-about" id="dialog-about"></p><div class="dialog-version" id="dialog-version"></div><h3>시작 전에 이것도 읽어 줘!</h3><ul id="dialog-notes"></ul><div class="dialog-actions" id="dialog-actions"></div></dialog>
+  <dialog id="details" aria-labelledby="dialog-title">
+    <div class="dialog-head"><p class="eyebrow" id="dialog-platform"></p><button id="close-dialog" aria-label="상세 정보 닫기" type="button">✕</button></div>
+    <h2 id="dialog-title"></h2>
+    <p id="insert-status" class="sr-only" role="status" aria-live="polite"></p>
+    <div id="insert-stage" class="insert-stage" aria-hidden="true" hidden>
+      <div class="insert-scene">
+        <div class="insert-pack" id="insert-pack"></div>
+        <div class="insert-machine">
+          <div class="machine-top"><span class="machine-slot"></span></div>
+          <div class="machine-front"><span class="machine-brand">우리들의 게임기<small>1P + 2P MEMORIES</small></span><span class="machine-light"></span><span class="machine-switch"></span><span class="machine-vents">▥ ▥ ▥</span></div>
+        </div>
+      </div>
+      <p class="insertion-message">좋아, 이 팩으로 하자! <span>게임기에 쏙 넣는 중…</span></p>
+    </div>
+    <button type="button" id="skip-insert" class="skip-insert" hidden>기다리지 않고 소개 보기 →</button>
+    <div id="game-introduction">
+      <figure id="dialog-media" class="dialog-media" hidden></figure>
+      <p class="dialog-about" id="dialog-about"></p><div class="dialog-version" id="dialog-version"></div>
+      <h3>시작 전에 이것도 읽어 줘!</h3><ul id="dialog-notes"></ul><div class="dialog-actions" id="dialog-actions"></div>
+    </div>
+  </dialog>
 </body>
 </html>

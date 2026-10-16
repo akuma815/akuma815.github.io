@@ -43,7 +43,12 @@ def main():
     ctx.eval('''
     var window=globalThis;
     var elements={}; var platformButtons=[];
-    function element(id){return elements[id]||(elements[id]={id:id,innerHTML:"",textContent:"",hidden:false,value:"",checked:false,handlers:{},addEventListener:function(event,fn){this.handlers[event]=fn},setAttribute:function(k,v){this[k]=v},showModal:function(){this.open=true},close:function(){this.open=false;if(this.handlers.close)this.handlers.close()},focus:function(){this.focused=true}})};
+    var nextTimer=0; var timers={}; var reducedMotion=false;
+    window.setTimeout=function(fn){timers[++nextTimer]=fn;return nextTimer};
+    window.clearTimeout=function(id){delete timers[id]};
+    window.matchMedia=function(){return {matches:reducedMotion}};
+    function flushTimers(){var pending=timers;timers={};Object.values(pending).forEach(function(fn){fn()})};
+    function element(id){return elements[id]||(elements[id]={id:id,innerHTML:"",textContent:"",hidden:false,value:"",checked:false,dataset:{},handlers:{},addEventListener:function(event,fn){this.handlers[event]=fn},setAttribute:function(k,v){this[k]=v},showModal:function(){this.open=true},close:function(){this.open=false;if(this.handlers.close)this.handlers.close()},focus:function(){this.focused=true;document.activeElement=this}})};
     var document={getElementById:element,querySelectorAll:function(){return platformButtons}};
     function fire(id,event,value){var e=element(id);if(event==="input"||event==="change"){if(typeof value==="boolean")e.checked=value;else e.value=value}e.handlers[event]({target:e});}
     function cards(){return (element("games").innerHTML.match(/class="game-card"/g)||[]).length;}
@@ -54,6 +59,8 @@ def main():
     ctx.eval((ROOT/'assets/app.js').read_text(encoding='utf-8'))
     assert ctx.eval('cards()')==len(catalog['games'])
     assert ctx.eval('(element("games").innerHTML.match(/<img /g)||[]).length')==sum(bool(g.get('screenshot')) for g in catalog['games'])
+    assert ctx.eval('(element("games").innerHTML.match(/class="pack-pick"/g)||[]).length')==total
+    assert ctx.eval('element("games").innerHTML.includes("media-advance") && element("games").innerHTML.includes("media-disc")')
     assert ctx.eval('element("catalog-summary").textContent')==f'지금 받을 수 있는 패치 {public}개 · 등록 준비 {total-public}개'
     ctx.eval('fire("search","input","메트로이드")');assert ctx.eval('cards()')==2
     ctx.eval('fire("search","input","Another Code")');assert ctx.eval('cards()')==1
@@ -65,16 +72,34 @@ def main():
     ctx.eval('fire("reset","click")');assert ctx.eval('cards()')==total
     ctx.eval('fire("available-only","change",true)');assert ctx.eval('cards()')==public
     ctx.eval('fire("reset","click");detail("gba-metroid-fusion-kr-patch")');assert ctx.eval('element("details").open')
+    assert ctx.eval('element("insert-pack").innerHTML.includes("media-advance")')
+    assert ctx.eval('element("game-introduction").hidden && !element("insert-stage").hidden')
+    assert ctx.eval('element("details").dataset.loading')=='true'
+    ctx.eval('flushTimers()')
+    assert ctx.eval('!element("game-introduction").hidden && element("insert-stage").hidden')
+    assert ctx.eval('element("details").dataset.loading')=='false'
     assert not ctx.eval('element("dialog-media").hidden')
     assert ctx.eval('element("dialog-media").innerHTML.includes("assets/screenshots/gba-metroid-fusion-kr-patch.png")')
     assert ctx.eval('element("dialog-actions").innerHTML.includes("releases/tag/v1.0")')
     ctx.eval('fire("close-dialog","click")');assert not ctx.eval('element("details").open')
+    # Closing before insertion finishes must cancel the timer and restore focus.
+    ctx.eval('detail("gba-metroid-fusion-kr-patch");fire("close-dialog","click");flushTimers()')
+    assert not ctx.eval('element("details").open') and ctx.eval('element("game-introduction").hidden')
+    assert ctx.eval('element("insert-pack").innerHTML')==''
+    # Users can skip; focus cannot be left on a hidden skip button.
+    ctx.eval('detail("gba-metroid-fusion-kr-patch");element("skip-insert").focus();fire("skip-insert","click")')
+    assert not ctx.eval('element("game-introduction").hidden')
+    assert ctx.eval('document.activeElement===element("close-dialog")')
+    ctx.eval('fire("close-dialog","click");reducedMotion=true;detail("gba-metroid-fusion-kr-patch")')
+    assert not ctx.eval('element("game-introduction").hidden')
+    assert ctx.eval('Object.keys(timers).length')==0
+    ctx.eval('fire("close-dialog","click");reducedMotion=false')
     pending=next((g for g in catalog['games'] if not g['available']),None)
     if pending:
         ctx.eval('detail('+json.dumps(pending['id'])+')');assert ctx.eval('element("dialog-actions").innerHTML.includes("등록 후")')
         assert not ctx.eval('element("dialog-actions").innerHTML.includes("href")')
     ctx.eval('fire("close-dialog","click");fire("search","input","<img onerror=alert(1)>")');assert ctx.eval('cards()')==0
-    result=dict(status='PASS',games=total,public_releases=public,checks=['HTML IDs and assets','catalog schema and safe links','Korean/English search','platform and availability filters','empty state and reset','available/pending details','dialog open and close','HTML search input'],visual_browser_qa='NOT_PERFORMED_NO_CONNECTED_BROWSER')
+    result=dict(status='PASS',games=total,public_releases=public,checks=['HTML IDs and assets','catalog schema and safe links','Korean/English search','platform and availability filters','empty state and reset','available/pending details','dialog open and close','HTML search input','platform cartridge cards','insertion before introduction','close cancels insertion','skip restores visible focus','reduced motion skips insertion'],visual_browser_qa='NOT_PERFORMED_BY_THIS_SCRIPT')
     (ROOT/'qa').mkdir(exist_ok=True);(ROOT/'qa/checks.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(result,ensure_ascii=False))
 
