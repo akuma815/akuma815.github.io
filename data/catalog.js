@@ -411,7 +411,8 @@ window.PATCH_CATALOG = {
         "providedBy": "user",
         "attachmentDate": "2026-10-16",
         "preservation": "Chat attachment bytes copied unchanged; no crop, retouch or rescale performed locally."
-      }
+      },
+      "status": "in-progress"
     },
     {
       "id": "switch-tenshi-no-uta-kr-patch",

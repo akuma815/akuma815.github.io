@@ -129,3 +129,6 @@ html:has(#details[open]) { overflow: hidden; }
   .machine-brand { font-size: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { .pack-shell, #game-introduction, .insert-pack, .machine-light { animation: none !important; transition: none !important; } }
+
+.game-grid .availability.is-working { color: #e5ba77; }
+.game-card .status-dot.working { background: #dca45e; }

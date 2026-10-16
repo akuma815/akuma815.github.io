@@ -23,7 +23,7 @@
       selected=game;
       $("game-share-url").value=gameUrl(game);
       $("game-share-feedback").textContent="";
-      document.title=game.title+" 한글 패치 "+game.version+" | akuma815";
+      document.title=game.title+" 한글 패치 "+(game.status==="in-progress"?"작업 중 · ":"")+game.version+" | akuma815";
       if (!syncing && requestedGame()!==game.id) {
         const url=new URL(window.location.href);
         url.searchParams.set("game",game.id);url.hash="";

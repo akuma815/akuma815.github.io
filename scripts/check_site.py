@@ -25,7 +25,7 @@ def main():
     browser_catalog=(ROOT/'data/catalog.js').read_text(encoding='utf-8')
     assert browser_catalog.startswith('window.PATCH_CATALOG = ') and browser_catalog.endswith(';\n')
     assert json.loads(browser_catalog[len('window.PATCH_CATALOG = '):-2])==catalog,'Browser catalog differs from JSON'
-    total=len(catalog['games']);public=sum(g['available'] for g in catalog['games'])
+    total=len(catalog['games']);public=sum(g['available'] and g.get('status')!='in-progress' for g in catalog['games']);working=sum(g.get('status')=='in-progress' for g in catalog['games'])
     assert len({g['id'] for g in catalog['games']})==len(catalog['games'])
     for g in catalog['games']:
         assert g['title'] and g['description'] and isinstance(g['notes'],list)
@@ -71,14 +71,14 @@ def main():
     assert ctx.eval('(element("games").innerHTML.match(/<img /g)||[]).length')==sum(bool(g.get('screenshot')) for g in catalog['games'])
     assert ctx.eval('(element("games").innerHTML.match(/class="pack-pick"/g)||[]).length')==total
     assert ctx.eval('element("games").innerHTML.includes("media-advance") && element("games").innerHTML.includes("media-disc")')
-    assert ctx.eval('element("catalog-summary").textContent')==f'지금 받을 수 있는 패치 {public}개 · 등록 준비 {total-public}개'
+    assert ctx.eval('element("catalog-summary").textContent')==f'지금 받을 수 있는 패치 {public}개 · 등록 준비 {total-public-working}개'+(f' · 작업 중 {working}개' if working else '')
     ctx.eval('fire("search","input","메트로이드")');assert ctx.eval('cards()')==2
     ctx.eval('fire("search","input","Another Code")');assert ctx.eval('cards()')==1
     ctx.eval('fire("search","input","no-such-game-815")');assert ctx.eval('cards()')==0 and not ctx.eval('element("empty").hidden')
     ctx.eval('fire("empty-reset","click")');assert ctx.eval('cards()')==total
     ctx.eval('choose("GBA")');assert ctx.eval('cards()')==2
     ctx.eval('choose("PSP")');assert ctx.eval('cards()')==3
-    ctx.eval('fire("available-only","change",true)');assert ctx.eval('cards()')==sum(g['platform']=='PSP' and g['available'] for g in catalog['games'])
+    ctx.eval('fire("available-only","change",true)');assert ctx.eval('cards()')==sum(g['platform']=='PSP' and g['available'] and g.get('status')!='in-progress' for g in catalog['games'])
     ctx.eval('fire("reset","click")');assert ctx.eval('cards()')==total
     ctx.eval('fire("available-only","change",true)');assert ctx.eval('cards()')==public
     ctx.eval('fire("reset","click");detail("gba-metroid-fusion-kr-patch")');assert ctx.eval('element("details").open')
@@ -104,6 +104,13 @@ def main():
     assert not ctx.eval('element("game-introduction").hidden')
     assert ctx.eval('Object.keys(timers).length')==0
     ctx.eval('fire("close-dialog","click");reducedMotion=false')
+    # Manual work-in-progress status must override an existing RC release.
+    ctx.eval('fire("reset","click");detail("pc-shivers-kr-patch")')
+    assert ctx.eval('element("dialog-version").innerHTML.includes("작업 중")')
+    assert ctx.eval('element("dialog-actions").innerHTML.includes("시험판") && !element("dialog-actions").innerHTML.includes("최종 패치")')
+    ctx.eval('fire("close-dialog","click");fire("available-only","change",true)')
+    assert not ctx.eval('element("games").innerHTML.includes("pc-shivers-kr-patch")')
+    ctx.eval('fire("reset","click")')
     pending=next((g for g in catalog['games'] if not g['available']),None)
     if pending:
         ctx.eval('detail('+json.dumps(pending['id'])+')');assert ctx.eval('element("dialog-actions").innerHTML.includes("등록 후")')

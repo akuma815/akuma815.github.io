@@ -9,7 +9,7 @@ def render_game_page(template,game,site_url=SITE_URL):
     slug=game['id']
     if not re.fullmatch(r'[a-z0-9-]+',slug):raise ValueError('Invalid game ID: '+slug)
     esc=lambda v:html.escape(str(v),quote=True)
-    title=f"{game['title']} 한글 패치 {game['version']} | akuma815"
+    title=f"{game['title']} 한글 패치 {'작업 중 · ' if game.get('status')=='in-progress' else ''}{game['version']} | akuma815"
     url=urljoin(site_url.rstrip('/')+'/',f'games/{slug}/')
     text=template.replace('<head>','<head>\n  <base href="../../">',1)
     text,n=re.subn(r'<title>.*?</title>',lambda _:f'<title>{esc(title)}</title>',text,count=1);assert n==1
@@ -30,7 +30,7 @@ def render_game_page(template,game,site_url=SITE_URL):
     text=text.replace('</head>','  '+'\n  '.join(tags)+'\n</head>',1)
     fallback=f'<noscript><section><h2>{esc(title)}</h2><p>{esc(game["description"])}</p><ul>'+''.join(f'<li>{esc(note)}</li>' for note in game['notes'])+'</ul>'
     if game['available'] and re.fullmatch(r'https://github\.com/akuma815/[a-z0-9-]+/releases/tag/[A-Za-z0-9._-]+',game.get('release','')):
-        fallback+=f'<a href="{esc(game["release"])}">이 게임 한글 패치 받기</a>'
+        fallback+=f'<a href="{esc(game["release"])}">{"작업 중인 시험판 보기" if game.get("status")=="in-progress" else "이 게임 한글 패치 받기"}</a>'
     fallback+='</section></noscript>'
     text,n=re.subn(r'<noscript>.*?</noscript>',lambda _:fallback,text,count=1,flags=re.S);assert n==1
     return text
