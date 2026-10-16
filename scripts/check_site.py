@@ -1,8 +1,10 @@
 """Static and DOM-emulated interaction checks; these do not replace browser QA."""
 from pathlib import Path
+import hashlib
 from html.parser import HTMLParser
 import json,re
 import quickjs
+from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
 class HTMLCheck(HTMLParser):
@@ -27,6 +29,13 @@ def main():
             assert g['repository']=='https://github.com/akuma815/'+g['id']
             assert g['release'].startswith(g['repository']+'/releases/tag/')
         else:assert g['repository'] is None and g['release'] is None
+        if g.get('screenshot'):
+            image=g['screenshot'];f=ROOT/image['src']
+            assert f.is_file()
+            assert hashlib.sha256(f.read_bytes()).hexdigest()==image.get('assetSHA256',image['sourceSHA256'])
+            if image.get('pixelSHA256'):
+                with Image.open(f) as im:assert hashlib.sha256(im.convert('RGBA').tobytes()).hexdigest()==image['pixelSHA256']
+            assert image['kind'] in {'runtime','graphics','video'} and image['sourceNote']
     ctx=quickjs.Context()
     ctx.eval('''
     var window=globalThis;
@@ -41,6 +50,7 @@ def main():
     ctx.eval((ROOT/'data/catalog.js').read_text(encoding='utf-8'))
     ctx.eval((ROOT/'assets/app.js').read_text(encoding='utf-8'))
     assert ctx.eval('cards()')==len(catalog['games'])
+    assert ctx.eval('(element("games").innerHTML.match(/<img /g)||[]).length')==sum(bool(g.get('screenshot')) for g in catalog['games'])
     assert ctx.eval('element("catalog-summary").textContent')==f'배포 중 {public}개 · 등록 준비 {total-public}개'
     ctx.eval('fire("search","input","메트로이드")');assert ctx.eval('cards()')==2
     ctx.eval('fire("search","input","Another Code")');assert ctx.eval('cards()')==1
@@ -52,6 +62,8 @@ def main():
     ctx.eval('fire("reset","click")');assert ctx.eval('cards()')==total
     ctx.eval('fire("available-only","change",true)');assert ctx.eval('cards()')==public
     ctx.eval('fire("reset","click");detail("gba-metroid-fusion-kr-patch")');assert ctx.eval('element("details").open')
+    assert not ctx.eval('element("dialog-media").hidden')
+    assert ctx.eval('element("dialog-media").innerHTML.includes("assets/screenshots/gba-metroid-fusion-kr-patch.png")')
     assert ctx.eval('element("dialog-actions").innerHTML.includes("releases/tag/v1.0")')
     ctx.eval('fire("close-dialog","click")');assert not ctx.eval('element("details").open')
     pending=next((g for g in catalog['games'] if not g['available']),None)

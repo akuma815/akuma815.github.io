@@ -15,7 +15,19 @@ window.PATCH_CATALOG = {
       "notes": [
         "일본판 ANOJ 전용입니다.",
         "패치 적용·정적 검증 기록이 있으며, 최종 수정본의 전 구간 실플레이 검수는 미완료입니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/nds-another-code-kr-patch.png",
+        "caption": "오프닝 한글 그래픽 비교",
+        "kind": "graphics",
+        "width": 1280,
+        "height": 490,
+        "source": "web/akuma815.github.io/qa/another_embedded_4.png",
+        "sourceSHA256": "293cebf9b5dc26cd187c49a7e53273aa034aa4fc965e84d8dc5d64110f70385b",
+        "assetSHA256": "293cebf9b5dc26cd187c49a7e53273aa034aa4fc965e84d8dc5d64110f70385b",
+        "pixelSHA256": "0391bc18025ea61834c6ba3de2275b54f064a97d6874723cef724d04eb834f3b",
+        "sourceNote": "공개 작업기 내 오프닝 그래픽 비교. 실제 게임 캡처가 아닌 비교 자료입니다."
+      }
     },
     {
       "id": "nes-battletoads-kr-patch",
@@ -30,7 +42,19 @@ window.PATCH_CATALOG = {
       "notes": [
         "일본판 원본 전용입니다.",
         "본문 번역과 타이틀 등 실제 적용 범위는 동봉 안내를 확인하세요."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/nes-battletoads-kr-patch.png",
+        "caption": "한글 타이틀",
+        "kind": "runtime",
+        "width": 256,
+        "height": 240,
+        "source": "Games/Battletoads/work/qa/final_release/mesen/f01500.png",
+        "sourceSHA256": "13181f7e0099b1b4523e3ece5babd7111d739128ea54c77c09678f87b0d07251",
+        "assetSHA256": "13181f7e0099b1b4523e3ece5babd7111d739128ea54c77c09678f87b0d07251",
+        "pixelSHA256": "5eec18300d6ac4237b764f25fa55af21d61c641117a7a0611d6d99fcbb77385a",
+        "sourceNote": "final_release Mesen 캡처"
+      }
     },
     {
       "id": "ps1-bushido-blade-kr-patch",
@@ -45,7 +69,19 @@ window.PATCH_CATALOG = {
       "notes": [
         "미국판 SCUS-941.80과 일본판 SLPM-860.20 패치는 서로 독립적입니다.",
         "미국판은 컷신·엔딩 자막 중심, 일본판은 메뉴·UI 중심이며 번역 범위가 다릅니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/ps1-bushido-blade-kr-patch.webp",
+        "caption": "한글 타이틀 · 작업 당시 캡처",
+        "kind": "runtime",
+        "width": 3840,
+        "height": 2055,
+        "source": "Games/Bushido Blade/work/screenshots/poc_title/ブシドーブレード 2026-07-29-21-55-42.png",
+        "sourceSHA256": "ceea68ac9c1ba135d8910fbcbd3c8736985429363b1fcd23e8dd44dd96fa6907",
+        "assetSHA256": "64df2347093f15ca65ea7e484a0679025cc30138d2156b2c19f74ae300600bc0",
+        "pixelSHA256": "3cf122c3c2231a3058decf260b819b762f7bf5ee2ad31016b8348d10dd2492ca",
+        "sourceNote": "poc_title 2026-07-29 캡처"
+      }
     },
     {
       "id": "nes-city-connection-kr-patch",
@@ -60,7 +96,19 @@ window.PATCH_CATALOG = {
       "notes": [
         "일본판 원본 전용입니다.",
         "실기 및 다른 에뮬레이터 검증은 배포 안내 기준 미실시입니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/nes-city-connection-kr-patch.png",
+        "caption": "한글 타이틀 · 작업 당시 캡처",
+        "kind": "runtime",
+        "width": 256,
+        "height": 240,
+        "source": "Games/City Connection/work/qa/logo22/f00240.png",
+        "sourceSHA256": "61a381823a2fc99af8019f8e1af1aa3aa78522e2dae743cb4ea326b08a3b1705",
+        "assetSHA256": "61a381823a2fc99af8019f8e1af1aa3aa78522e2dae743cb4ea326b08a3b1705",
+        "pixelSHA256": "3a66b4f974a1e49be1bf0e253f655b505dd8e497de794b065d0f5c86842712b1",
+        "sourceNote": "logo22 Mesen 캡처"
+      }
     },
     {
       "id": "arcade-dark-seal-kr-patch",
@@ -75,7 +123,19 @@ window.PATCH_CATALOG = {
       "notes": [
         "일본판 rev 4의 darksealj 및 부모 darkseal 세트가 필요합니다.",
         "FBNeo IPS 패치이며 부모 세트만 실행하면 적용되지 않습니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/arcade-dark-seal-kr-patch.png",
+        "caption": "한글 프롤로그",
+        "kind": "runtime",
+        "width": 960,
+        "height": 752,
+        "source": "Games/Dark Seal/darksealj/work/dumps_kr_attract/screenshot.png",
+        "sourceSHA256": "a5314bf097e968b5c55c9cf731eb7135562a7b0d6762d3828ecc3d25aa0dd98b",
+        "assetSHA256": "a5314bf097e968b5c55c9cf731eb7135562a7b0d6762d3828ecc3d25aa0dd98b",
+        "pixelSHA256": "512433a7d4b0034c29bba55a23eff24b692e89a2fe088d42aa515dd92f599eb1",
+        "sourceNote": "dumps_kr_attract 게임 캡처"
+      }
     },
     {
       "id": "arcade-dark-seal-2-kr-patch",
@@ -90,7 +150,19 @@ window.PATCH_CATALOG = {
       "notes": [
         "일본판 v2.1의 darkseal2 및 부모 wizdfire 세트가 필요합니다.",
         "FBNeo IPS 패치이며 ROM 이름과 CRC가 일치해야 합니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/arcade-dark-seal-2-kr-patch.png",
+        "caption": "한글 프롤로그 · v1.0.1 캡처",
+        "kind": "runtime",
+        "width": 960,
+        "height": 752,
+        "source": "Games/Dark Seal/darkseal2/work/dumps_Korean_v101_check/screenshot.png",
+        "sourceSHA256": "05f9fd3d8baebfcf287fc4bb98f17df1def0162b21dfebbdc51fcedae31b42f3",
+        "assetSHA256": "05f9fd3d8baebfcf287fc4bb98f17df1def0162b21dfebbdc51fcedae31b42f3",
+        "pixelSHA256": "44155656a51b70d5edeac56bdf72afc2b63e3a61ca5102d3769ccf8dd594a8de",
+        "sourceNote": "dumps_Korean_v101_check 게임 캡처"
+      }
     },
     {
       "id": "psp-death-jr-kr-patch",
@@ -106,7 +178,19 @@ window.PATCH_CATALOG = {
         "미국판 ULUS10027 v1.01 전용입니다.",
         "게임 번역과 4개 영상 자막을 포함합니다.",
         "최종본의 실제 장면 및 전 구간 플레이 검수는 미완료입니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/psp-death-jr-kr-patch.png",
+        "caption": "한글 영상 자막 · 미리보기",
+        "kind": "video",
+        "width": 480,
+        "height": 272,
+        "source": "Games/Death Jr/workspace/video/subtitled_001_kyobo24/qa/GAMEINTRO_005.png",
+        "sourceSHA256": "6a792e67220625d5ed6df418014b6b6355bf6da10ae5637322d2b18e6007e4b1",
+        "assetSHA256": "6a792e67220625d5ed6df418014b6b6355bf6da10ae5637322d2b18e6007e4b1",
+        "pixelSHA256": "f4e59bea47704413958832adda6d5dc5aee1cf313e8f7abc1ec1f529ad0ef2ea",
+        "sourceNote": "자막 삽입 영상의 QA 프레임. 에뮬레이터 실행 캡처가 아닙니다."
+      }
     },
     {
       "id": "gba-metroid-zero-mission-kr-patch",
@@ -122,7 +206,19 @@ window.PATCH_CATALOG = {
         "일본판 BMXJ 전용입니다.",
         "패치 이전 세이브에서 일부 지도 지역명의 마지막 글자가 빠질 수 있습니다.",
         "링크 케이블 관련 화면의 실기 검증은 미실시입니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/gba-metroid-zero-mission-kr-patch.png",
+        "caption": "한글 타이틀",
+        "kind": "runtime",
+        "width": 240,
+        "height": 160,
+        "source": "Games/Metroid - Zero Mission/qa/logs/title_ko/t2400_screen.png",
+        "sourceSHA256": "ea7dd80cd349bbde1afb55b7ee772a608247ac4100aa77356b927a525e524a2a",
+        "assetSHA256": "ea7dd80cd349bbde1afb55b7ee772a608247ac4100aa77356b927a525e524a2a",
+        "pixelSHA256": "877d4f4f1bff2443b8a6673daa121b17f521ca14eb8c365349cc0785bcd424dd",
+        "sourceNote": "title_ko Mesen 캡처"
+      }
     },
     {
       "id": "gba-metroid-fusion-kr-patch",
@@ -137,7 +233,19 @@ window.PATCH_CATALOG = {
       "notes": [
         "일본판 AMTJ / METROID4JPN 전용입니다.",
         "최종 수정본의 처음부터 엔딩까지 실플레이 검수는 미완료입니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/gba-metroid-fusion-kr-patch.png",
+        "caption": "한글 타이틀 · 작업 당시 캡처",
+        "kind": "runtime",
+        "width": 240,
+        "height": 160,
+        "source": "Games/Metroid Fusion/qa/screenshots/v24_korean_title_vramsafe/03450_f.png",
+        "sourceSHA256": "d5a09b21e12504e2acb392167250bc0c9f0ce2a916792c8f6ad3c3a13d18f404",
+        "assetSHA256": "d5a09b21e12504e2acb392167250bc0c9f0ce2a916792c8f6ad3c3a13d18f404",
+        "pixelSHA256": "48ab7d421fc4aaec19b5d5cb60d84fd9de4a36f0d46179c713220f564e6de6ac",
+        "sourceNote": "v24_korean_title_vramsafe Mesen 캡처"
+      }
     },
     {
       "id": "nes-ninja-jajamaru-kun-kr-patch",
@@ -152,7 +260,19 @@ window.PATCH_CATALOG = {
       "notes": [
         "일본판 원본 전용입니다.",
         "이번 범위는 타이틀 로고와 1인용·2인용 메뉴입니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/nes-ninja-jajamaru-kun-kr-patch.png",
+        "caption": "한글 타이틀 · 메뉴 003",
+        "kind": "runtime",
+        "width": 256,
+        "height": 240,
+        "source": "Games/Ninja Jajamaru-kun/qa/title_kr_menu_003/cold_boot_001/frame_0240.png",
+        "sourceSHA256": "ddecbbb92debd5611cd3242da5fb642b22a4e0ca18b76a4bf9487a5800d6a7eb",
+        "assetSHA256": "ddecbbb92debd5611cd3242da5fb642b22a4e0ca18b76a4bf9487a5800d6a7eb",
+        "pixelSHA256": "8df72ad2df24ada28429ae999f72b234dba3b6d3267ec1ff6d2baf206bbc8534",
+        "sourceNote": "title_kr_menu_003 Mesen 콜드 부팅 캡처"
+      }
     },
     {
       "id": "psp-prinny-kr-patch",
@@ -168,7 +288,19 @@ window.PATCH_CATALOG = {
         "일본판 ULJS00150 1.01 전용이며 본편과 DLC 3종 패치가 포함됩니다.",
         "DLC는 같은 배포본의 본편 패치가 적용된 한글 글꼴을 사용합니다.",
         "PSP 펌웨어의 세이브 목록 제목·설명 일부는 호환성을 위해 일본어로 유지됩니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/psp-prinny-kr-patch.png",
+        "caption": "한글 메뉴 그래픽 · 캡처 준비 중",
+        "kind": "graphics",
+        "width": 512,
+        "height": 256,
+        "source": "Games/Prinny - Ore ga Shujinkou de Iinsuka/work/live/base_menu/091591e09a963304c67a3ca6.png",
+        "sourceSHA256": "f5dd9b65bc85483f41e61ceb2212502f8df34f824ab2973d60c95f45ca679eba",
+        "assetSHA256": "f5dd9b65bc85483f41e61ceb2212502f8df34f824ab2973d60c95f45ca679eba",
+        "pixelSHA256": "94f283f144961ef6315b93ac1d98b132825886301221eb03d813f4120959b14d",
+        "sourceNote": "한글 메뉴 텍스처 작업 이미지. 게임 전체 화면 캡처가 아닙니다."
+      }
     },
     {
       "id": "ps1-rakugaki-showtime-kr-patch",
@@ -184,7 +316,19 @@ window.PATCH_CATALOG = {
         "일본판 SLPM-86272의 단일 MODE2/2352 BIN 전용입니다.",
         "자동 해금판과 원작 진행판 중 하나만 적용합니다.",
         "일부 영상 자막은 초벌이며, 7개 영상 전체의 최종 런타임 검증은 미완료입니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/ps1-rakugaki-showtime-kr-patch.webp",
+        "caption": "한글 메뉴 · 작업 당시 캡처",
+        "kind": "runtime",
+        "width": 1000,
+        "height": 1000,
+        "source": "Games/Rakugaki Showtime/work/runtime/hangul_atlas_001_title/title_013.png",
+        "sourceSHA256": "486593937f921e5425db4fc509885c76a7d920c77163290f92b86b109c381fe0",
+        "assetSHA256": "0a9966d842494216be874b20bd030a8e51cf2666eff04ff3a17badf31a733a9a",
+        "pixelSHA256": "30a663165b67dce2e8122950f8d646e99bc49e8aca32f117643289835268cd37",
+        "sourceNote": "hangul_atlas_001_title DuckStation 캡처. 대형 로고는 원문입니다."
+      }
     },
     {
       "id": "pc-shivers-kr-patch",
@@ -201,7 +345,19 @@ window.PATCH_CATALOG = {
         "동봉 커스텀 ScummVM을 사용해야 하며 일반 ScummVM·SIERRAW.EXE에서는 정상 동작하지 않습니다.",
         "Windows의 맑은 고딕이 필요하며 폰트 자체는 배포하지 않습니다.",
         "전체 게임의 모든 장면을 새로 검수한 완전 번역판이라는 의미는 아닙니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/pc-shivers-kr-patch.webp",
+        "caption": "한글 타이틀 · 작업 당시 캡처",
+        "kind": "runtime",
+        "width": 661,
+        "height": 529,
+        "source": "Games/Shivers1/qa/screenshots/scummvm/full_audio_subtitles_017_20260903_01/capture_027s.png",
+        "sourceSHA256": "35fbb7922a2093998fff412f25d404204b4fa1bffa9dd22be31ace872afeba08",
+        "assetSHA256": "3ae3dae96ba7a1258bbe07d5cf990d739fcd59ac1078baf82f24596d0a631343",
+        "pixelSHA256": "f6de89834af4909e3a19c69064e98f1cec0f511d4cd99555554ef2a1e5dbfb77",
+        "sourceNote": "full_audio_subtitles_017 커스텀 ScummVM 캡처"
+      }
     },
     {
       "id": "switch-tenshi-no-uta-kr-patch",
@@ -250,7 +406,19 @@ window.PATCH_CATALOG = {
         "단일 BIN과 Redump 멀티 BIN은 각 전용 패치를 사용합니다.",
         "에뮬레이터에는 패치된 디스크와 패치된 시스템 카드를 함께 지정합니다.",
         "이전 버전의 세이브스테이트는 사용하지 마세요. 지원 에뮬레이터와 세이브 이전은 동봉 안내를 따르세요."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/pce-tenshi-no-uta-2-kr-patch.png",
+        "caption": "한글 타이틀 · v1.0",
+        "kind": "runtime",
+        "width": 256,
+        "height": 232,
+        "source": "Games/Tenshi no Uta II - Datenshi no Sentaku (Japan)/qa/release_Tenshi2_KR_v1.0_20261014/smoke/single_pcefast_0031.png",
+        "sourceSHA256": "cf345f38aca3f587da400ab989dca5c016593102f63be85f5007a7dafecb08eb",
+        "assetSHA256": "cf345f38aca3f587da400ab989dca5c016593102f63be85f5007a7dafecb08eb",
+        "pixelSHA256": "6eb45a7d8f39dba3b413c26c2bcb9e41faff56beb5233f4d9dfad8b57dea40ab",
+        "sourceNote": "release_Tenshi2_KR_v1.0_20261014 pce_fast 캡처"
+      }
     },
     {
       "id": "nes-tiny-toon-adventures-kr-patch",
@@ -266,7 +434,19 @@ window.PATCH_CATALOG = {
         "일본판 원본 전용입니다.",
         "당근 교환 후 대기 중 글꼴이 바뀌는 문제를 수정한 버전입니다.",
         "등록 장면의 검증과 전체 완주 검수는 구분하며, 최종 문구 검토·실기 검증은 미완료입니다."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/nes-tiny-toon-adventures-kr-patch.png",
+        "caption": "한글 타이틀",
+        "kind": "runtime",
+        "width": 256,
+        "height": 240,
+        "source": "Games/Tiny Toon Adventures/qa/title/kr_smoke_001/frame_0240.png",
+        "sourceSHA256": "00a6db5868f7fb989b80ebaa40f1820694bb38790f1f9e6acac514013f81f69e",
+        "assetSHA256": "00a6db5868f7fb989b80ebaa40f1820694bb38790f1f9e6acac514013f81f69e",
+        "pixelSHA256": "aac0b863b3e7fd7f45b0f90fa7269333c946654b568aa06a972c75bf351b5039",
+        "sourceNote": "kr_smoke_001 Mesen 캡처"
+      }
     },
     {
       "id": "nes-tiny-toon-adventures-2-kr-patch",
@@ -282,7 +462,19 @@ window.PATCH_CATALOG = {
         "일본판 Montana Land e Youkoso 전용이며 1편 패치와 호환되지 않습니다.",
         "데이터 기준은 062입니다. 실제 화면·완주 1차 검수 완료는 사용자의 보고이며 배포 후 추가 검증이 예정되어 있습니다.",
         "HOWTO·PAUSE·POW 등 원문 유지 항목과 이전 세이브스테이트 호환 미확인을 동봉 안내에서 확인하세요."
-      ]
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/nes-tiny-toon-adventures-2-kr-patch.png",
+        "caption": "한글 타이틀",
+        "kind": "runtime",
+        "width": 256,
+        "height": 240,
+        "source": "Games/Tiny Toon Adventures 2/qa/title/title_kr_ai_003_attract/frame_00840.png",
+        "sourceSHA256": "772d8ff10d5612fd3016f580111fd9ba8c8c1c2ae77381563567f31f52f4ef95",
+        "assetSHA256": "772d8ff10d5612fd3016f580111fd9ba8c8c1c2ae77381563567f31f52f4ef95",
+        "pixelSHA256": "549c01e2f68b8b2f046b2ea8464c32ba70d5f0c3088a003657b8014054286c2a",
+        "sourceNote": "title_kr_ai_003_attract Mesen 캡처"
+      }
     },
     {
       "id": "psp-valhalla-knights-kr-patch",

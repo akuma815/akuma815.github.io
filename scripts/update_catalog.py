@@ -34,6 +34,10 @@ def main():
             game.update(available=bool(release),repository=repo['html_url'] if release else None,release=release['html_url'] if release else None)
             if release:game['version']=release['tag_name']
         data['checkedAt']=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=9))).date().isoformat()
+    media_path=ROOT/'data/screenshots.json'
+    media=json.loads(media_path.read_text(encoding='utf-8')) if media_path.exists() else {}
+    for game in data['games']:
+        if game['id'] in media:game['screenshot']=media[game['id']]
     target=ROOT/'data';target.mkdir(exist_ok=True)
     text=json.dumps(data,ensure_ascii=False,indent=2)
     (target/'catalog.json').write_text(text+'\n',encoding='utf-8')
