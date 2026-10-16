@@ -537,9 +537,9 @@ window.PATCH_CATALOG = {
       "platform": "PSP",
       "description": "캐릭터를 육성하며 던전을 탐험하는 액션 RPG입니다.",
       "version": "release-current",
-      "available": false,
-      "repository": null,
-      "release": null,
+      "available": true,
+      "repository": "https://github.com/akuma815/psp-valhalla-knights-kr-patch",
+      "release": "https://github.com/akuma815/psp-valhalla-knights-kr-patch/releases/tag/release-current",
       "notes": [
         "Valhalla Knights (Korea).iso의 지정 SHA-256과 일치하는 원본 전용입니다.",
         "패치 적용 결과는 원본보다 작습니다. 크기와 SHA-256을 함께 확인하세요.",
