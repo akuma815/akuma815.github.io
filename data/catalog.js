@@ -623,6 +623,64 @@ window.PATCH_CATALOG = {
         "romSHA256": "304b67fb63ad9145fb4cb61335cfdcc46c656a7b63d106be0a45db5258a9f004",
         "sourceNote": "정식 v1.0 적용 결과와 같은 SHA-256의 008 ROM을 Mesen 2.2.1에서 콜드 부팅해 캡처한 실제 한글 타이틀. 256×240 전체 PNG를 가공 없이 보존했습니다."
       }
+    },
+    {
+      "id": "psp-secret-agent-clank-kr-patch",
+      "title": "비밀요원 클랭크",
+      "english": "Secret Agent Clank",
+      "platform": "PSP",
+      "description": "클랭크가 턱시도를 입고 첩보 요원이 되어 누명을 쓴 라쳇을 구하러 출동해. 다양한 특수 비밀 도구와 함께 미션을 해결해 보자!",
+      "version": "v1.0 (진행 중)",
+      "available": false,
+      "repository": null,
+      "release": null,
+      "notes": [
+        "일본판 원본(UCJS-10086)에 한국어 폰트 및 텍스트를 이식·교정한 한글 패치야.",
+        "스토리 대사 및 컷신 자막 번역 검수와 xdelta 패치 생성이 완료되었으며, 현재 실기 및 에뮬레이터 최종 플레이 검수를 진행 중이야."
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/psp-secret-agent-clank-kr-patch.png",
+        "caption": "한글 타이틀 화면",
+        "kind": "runtime",
+        "width": 480,
+        "height": 272,
+        "source": "Games/Clank  Ratchet - Maruhi Mission Ignition/img/title.png",
+        "sourceSHA256": "74ff52c5553bb41af9423e9088cffc43b33aa4e0f6929b447c6ab58e0b7097a3",
+        "assetSHA256": "74ff52c5553bb41af9423e9088cffc43b33aa4e0f6929b447c6ab58e0b7097a3",
+        "pixelSHA256": "66cb7f5a3d4c19741230e0ff54a28f0396d057ab1d6d2f362555290196d6b3af",
+        "sourceNote": "PPSSPP 타이틀 화면 캡처",
+        "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
+      },
+      "status": "in-progress"
+    },
+    {
+      "id": "psp-ratchet-clank-size-matters-kr-patch",
+      "title": "라쳇 & 클랭크: 사이즈 매터스",
+      "english": "Ratchet & Clank: Size Matters",
+      "platform": "PSP",
+      "description": "휴가를 떠난 라쳇과 클랭크가 소녀를 구하기 위해 다시 모험을 떠나. 기상천외한 무기와 장비들로 적들을 물리쳐 보자!",
+      "version": "v1.0 (진행 중)",
+      "available": false,
+      "repository": null,
+      "release": null,
+      "notes": [
+        "정발 한글판(UCKS-45041)의 미번역 메뉴 및 오역·어색한 문장 103건을 일본판과 전수 대조 교정한 패치야.",
+        "xdelta 패치 빌드가 완료되었으며, 현재 릴리즈 배포 전 플레이 검수를 진행 중이야."
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/psp-ratchet-clank-size-matters-kr-patch.png",
+        "caption": "한글 타이틀 화면",
+        "kind": "runtime",
+        "width": 480,
+        "height": 272,
+        "source": "Games/Ratchet  Clank - Size Matters/img/title.png",
+        "sourceSHA256": "02b700d0c2300b6fa8968a5ba141531fd26e59fb6cb376181c395b50eab02f67",
+        "assetSHA256": "02b700d0c2300b6fa8968a5ba141531fd26e59fb6cb376181c395b50eab02f67",
+        "pixelSHA256": "dd4134fa8f85aab6de1cc10a4a16e712c4fdcc3aa107692cb8b0df00b6e05088",
+        "sourceNote": "PPSSPP 타이틀 화면 캡처",
+        "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
+      },
+      "status": "in-progress"
     }
   ]
 };

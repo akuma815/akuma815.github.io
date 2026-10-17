@@ -77,7 +77,7 @@ def main():
     ctx.eval('fire("search","input","no-such-game-815")');assert ctx.eval('cards()')==0 and not ctx.eval('element("empty").hidden')
     ctx.eval('fire("empty-reset","click")');assert ctx.eval('cards()')==total
     ctx.eval('choose("GBA")');assert ctx.eval('cards()')==2
-    ctx.eval('choose("PSP")');assert ctx.eval('cards()')==3
+    ctx.eval('choose("PSP")');assert ctx.eval('cards()')==sum(g['platform']=='PSP' for g in catalog['games'])
     ctx.eval('fire("available-only","change",true)');assert ctx.eval('cards()')==sum(g['platform']=='PSP' and g['available'] and g.get('status')!='in-progress' for g in catalog['games'])
     ctx.eval('fire("reset","click")');assert ctx.eval('cards()')==total
     ctx.eval('fire("available-only","change",true)');assert ctx.eval('cards()')==public
