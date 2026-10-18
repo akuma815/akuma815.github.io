@@ -630,13 +630,13 @@ window.PATCH_CATALOG = {
       "english": "Secret Agent Clank",
       "platform": "PSP",
       "description": "클랭크가 턱시도를 입고 첩보 요원이 되어 누명을 쓴 라쳇을 구하러 출동해. 다양한 특수 비밀 도구와 함께 미션을 해결해 보자!",
-      "version": "v1.0 (진행 중)",
-      "available": false,
-      "repository": null,
-      "release": null,
+      "version": "v1.0",
+      "available": true,
+      "repository": "https://github.com/akuma815/psp-secret-agent-clank-kr-patch",
+      "release": "https://github.com/akuma815/psp-secret-agent-clank-kr-patch/releases/tag/v1.0",
       "notes": [
-        "일본판 원본(UCJS-10086)에 한국어 폰트 및 텍스트를 이식·교정한 한글 패치야.",
-        "스토리 대사 및 컷신 자막 번역 검수와 xdelta 패치 생성이 완료되었으며, 현재 실기 및 에뮬레이터 최종 플레이 검수를 진행 중이야."
+        "한국 정발판(UCKS-45096)의 미번역 영문, 오역, 캐릭터 어조를 전수 교정한 한글 패치야.",
+        "xdelta 패치 빌드 및 무결성 검증이 완료된 v1.0 정식 배포판이야."
       ],
       "screenshot": {
         "src": "assets/screenshots/psp-secret-agent-clank-kr-patch.png",
@@ -650,8 +650,7 @@ window.PATCH_CATALOG = {
         "pixelSHA256": "66cb7f5a3d4c19741230e0ff54a28f0396d057ab1d6d2f362555290196d6b3af",
         "sourceNote": "PPSSPP 타이틀 화면 캡처",
         "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
-      },
-      "status": "in-progress"
+      }
     },
     {
       "id": "psp-ratchet-clank-size-matters-kr-patch",
@@ -659,13 +658,13 @@ window.PATCH_CATALOG = {
       "english": "Ratchet & Clank: Size Matters",
       "platform": "PSP",
       "description": "휴가를 떠난 라쳇과 클랭크가 소녀를 구하기 위해 다시 모험을 떠나. 기상천외한 무기와 장비들로 적들을 물리쳐 보자!",
-      "version": "v1.0 (진행 중)",
-      "available": false,
-      "repository": null,
-      "release": null,
+      "version": "v1.0",
+      "available": true,
+      "repository": "https://github.com/akuma815/psp-ratchet-clank-size-matters-kr-patch",
+      "release": "https://github.com/akuma815/psp-ratchet-clank-size-matters-kr-patch/releases/tag/v1.0",
       "notes": [
-        "정발 한글판(UCKS-45041)의 미번역 메뉴 및 오역·어색한 문장 103건을 일본판과 전수 대조 교정한 패치야.",
-        "xdelta 패치 빌드가 완료되었으며, 현재 릴리즈 배포 전 플레이 검수를 진행 중이야."
+        "정발 한글판(UCKS-45048)의 미번역 메뉴 및 오역·어색한 문장 103건을 일본판과 전수 대조 교정한 패치야.",
+        "xdelta 패치 빌드 및 무결성 검증이 완료된 v1.0 정식 배포판이야."
       ],
       "screenshot": {
         "src": "assets/screenshots/psp-ratchet-clank-size-matters-kr-patch.png",
@@ -679,8 +678,7 @@ window.PATCH_CATALOG = {
         "pixelSHA256": "dd4134fa8f85aab6de1cc10a4a16e712c4fdcc3aa107692cb8b0df00b6e05088",
         "sourceNote": "PPSSPP 타이틀 화면 캡처",
         "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
-      },
-      "status": "in-progress"
+      }
     }
   ]
 };
