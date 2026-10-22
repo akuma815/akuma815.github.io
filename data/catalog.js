@@ -1,5 +1,5 @@
 window.PATCH_CATALOG = {
-  "checkedAt": "2026-10-22",
+  "checkedAt": "2026-10-23",
   "owner": "akuma815",
   "games": [
     {
