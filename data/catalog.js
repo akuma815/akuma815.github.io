@@ -680,6 +680,36 @@ window.PATCH_CATALOG = {
         "sourceNote": "PPSSPP 타이틀 화면 캡처",
         "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
       }
+    },
+    {
+      "id": "psp-untold-legends-brotherhood-of-the-blade-kr-patch",
+      "title": "언톨드 레전드: 브라더후드 오브 더 블레이드",
+      "english": "Untold Legends: Brotherhood of the Blade",
+      "platform": "PSP",
+      "description": "네 가지 직업으로 영웅을 키우고, 장비를 모으며 던전을 탐험하는 액션 RPG야. 아벤을 위협하는 어둠에 맞서 모험을 떠나 보자!",
+      "version": "v1.0",
+      "available": true,
+      "repository": "https://github.com/akuma815/psp-untold-legends-brotherhood-of-the-blade-kr-patch",
+      "release": "https://github.com/akuma815/psp-untold-legends-brotherhood-of-the-blade-kr-patch/releases/tag/v1.0",
+      "notes": [
+        "한국판 ULKS46015 v1.01 원본 ISO 전용이야. Windows 패처에서 원본을 선택하면 새 한글 ISO가 만들어져.",
+        "문안 3,571개와 게임 지도 25타일·실제 로딩 문구를 번역했어. 사용처 미확인 문구 404개와 일부 그래픽·타이틀 배경 지도명·제작진은 원문이야.",
+        "저장창이 안 보이면 이 게임의 그래픽 설정에서 ‘버퍼 효과 건너뛰기’를 끄고 다시 실행해 줘.",
+        "선별 장면과 복사 저장의 저장 완료를 확인했어. 전체 플레이·후기·전투·엔딩·모든 저장/직업·실기 검수는 완료하지 않았어."
+      ],
+      "screenshot": {
+        "src": "assets/screenshots/psp-untold-legends-brotherhood-of-the-blade-kr-patch.png",
+        "caption": "타이틀 메뉴 · 로고와 배경 지도명 원문 유지",
+        "kind": "runtime",
+        "width": 480,
+        "height": 272,
+        "source": "Games/Untold Legends - Brotherhood of the Blade/public_repository/img/title-20261030.png",
+        "sourceSHA256": "cb2f28a71880f8911ed14efe5b2123dcf9846ecde13580fff3bc4155ea61d3f2",
+        "assetSHA256": "cb2f28a71880f8911ed14efe5b2123dcf9846ecde13580fff3bc4155ea61d3f2",
+        "pixelSHA256": "7b2cbc588ddee057a42124b340df1f26a463686eaf1aa37e968d2d29cc697492",
+        "sourceNote": "2026-10-30 동결 current27의 실제 PPSSPP 타이틀 메뉴. v1.0 ISO의 게임 80파일과 같은 구성의 폴더 실행 캡처이며, ISO 실행 캡처나 전체 플레이 검수 증거는 아닙니다.",
+        "preservation": "Original full PNG copied unchanged; no crop, retouch, rescale or format conversion."
+      }
     }
   ]
 };

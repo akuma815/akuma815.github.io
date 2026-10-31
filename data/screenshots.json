@@ -312,5 +312,18 @@
     "pixelSHA256": "dd4134fa8f85aab6de1cc10a4a16e712c4fdcc3aa107692cb8b0df00b6e05088",
     "sourceNote": "PPSSPP 타이틀 화면 캡처",
     "preservation": "Native PPSSPP PNG copied unchanged; no crop, rescale, retouch or format conversion."
+  },
+  "psp-untold-legends-brotherhood-of-the-blade-kr-patch": {
+    "src": "assets/screenshots/psp-untold-legends-brotherhood-of-the-blade-kr-patch.png",
+    "caption": "타이틀 메뉴 · 로고와 배경 지도명 원문 유지",
+    "kind": "runtime",
+    "width": 480,
+    "height": 272,
+    "source": "Games/Untold Legends - Brotherhood of the Blade/public_repository/img/title-20261030.png",
+    "sourceSHA256": "cb2f28a71880f8911ed14efe5b2123dcf9846ecde13580fff3bc4155ea61d3f2",
+    "assetSHA256": "cb2f28a71880f8911ed14efe5b2123dcf9846ecde13580fff3bc4155ea61d3f2",
+    "pixelSHA256": "7b2cbc588ddee057a42124b340df1f26a463686eaf1aa37e968d2d29cc697492",
+    "sourceNote": "2026-10-30 동결 current27의 실제 PPSSPP 타이틀 메뉴. v1.0 ISO의 게임 80파일과 같은 구성의 폴더 실행 캡처이며, ISO 실행 캡처나 전체 플레이 검수 증거는 아닙니다.",
+    "preservation": "Original full PNG copied unchanged; no crop, retouch, rescale or format conversion."
   }
 }
